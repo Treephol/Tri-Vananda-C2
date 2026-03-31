@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Coherence Map — Tri Vananda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg:    #0d1e15;
+  --ln:    rgba(255,255,255,0.09);
+  --ln2:   rgba(255,255,255,0.14);
+  --cream: #f0ece6;
+  --dim:   #cec9c2;
+  --muted: #9a958e;
+  --quiet: #5a5753;
+  --gold:  #b8a070;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Jost', sans-serif;
+  --cW: #b8a070;
+  --cL: #5a8a72;
+  --cH: #7a9aaa;
+  --cC: #cf554e;
+  --cD: #c09060;
+  --cM: rgba(255,255,255,0.5);
+}
+html, body {
+  background: #0a1510;
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  color: var(--cream);
+  display: flex;
+  justify-content: center;
+  padding: 36px 20px;
+  min-height: 100vh;
+}
+
+/* ── PAGE ── */
+.page {
+  width: 794px;
+  background: var(--bg);
+  padding: 30px 28px 22px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 80px rgba(0,0,0,0.6);
+}
+
+/* ── HEADER ── */
+.hd {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: start;
+  border-bottom: 0.5px solid var(--ln2);
+  padding-bottom: 14px;
+  margin-bottom: 12px;
+}
+.hd-eye {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--quiet); margin-bottom: 5px; display: block;
+}
+.hd-title {
+  font-family: var(--serif); font-size: 34px; font-weight: 300;
+  color: var(--cream); letter-spacing: -0.02em; line-height: 1.06;
+}
+.hd-title em { font-style: italic; }
+.hd-right { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+.hd-sub {
+  font-size: 11px; font-weight: 300; color: var(--muted);
+  line-height: 1.55; text-align: right; max-width: 180px;
+}
+.logo { height: 26px; width: auto; }
+
+/* ── TABLE ── */
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+col.c-cat  { width: 70px; }
+col.c-std  { width: 246px; }
+col.c-arr  { width: 24px; }
+col.c-ans  { width: 206px; }
+col.c-conv { width: 192px; }
+
+thead th {
+  font-size: 9px; font-weight: 500; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--quiet);
+  padding: 0 6px 8px; border-bottom: 0.5px solid var(--ln2);
+  vertical-align: bottom; white-space: nowrap; text-align: left;
+}
+thead th.th-cat { text-align: right; padding-right: 10px; padding-left: 0; }
+thead th.th-std { padding-left: 12px; }
+thead th.th-ans { padding-left: 14px; }
+thead th.th-cv  { padding-left: 14px; }
+
+tbody tr { border-bottom: 0.5px solid var(--ln); }
+tbody tr:last-child { border-bottom: none; }
+td { vertical-align: middle; padding: 0; }
+
+/* CATEGORY */
+td.cat {
+  text-align: right; padding: 18px 10px 18px 0;
+  border-right: 0.5px solid var(--ln2); vertical-align: middle;
+}
+.ct-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; display: block;
+}
+.ct-sub {
+  font-size: 11px; font-weight: 300; font-style: italic;
+  font-family: var(--serif); color: var(--muted);
+  margin-top: 3px; line-height: 1.3; display: block;
+}
+
+/* STANDARD */
+td.std { vertical-align: middle; }
+.std-inner { padding: 18px 10px 18px 12px; }
+
+tr[data-c="W"] .std-inner { border-left: 2px solid var(--cW); }
+tr[data-c="L"] .std-inner { border-left: 2px solid var(--cL); }
+tr[data-c="H"] .std-inner { border-left: 2px solid var(--cH); }
+tr[data-c="C"] .std-inner { border-left: 2px solid var(--cC); }
+tr[data-c="D"] .std-inner { border-left: 2px solid var(--cD); }
+tr[data-c="M"] .std-inner { border-left: 2px solid rgba(255,255,255,0.32); }
+tr[data-c="M"] td.std,
+tr[data-c="M"] td.ans { background: rgba(255,255,255,0.02); }
+
+.std-hl {
+  font-family: var(--serif); font-style: italic; font-size: 17px;
+  font-weight: 300; color: var(--dim); line-height: 1.4; margin-bottom: 7px;
+}
+.std-body {
+  font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.65;
+}
+.std-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.tag {
+  font-size: 8px; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--quiet); background: rgba(255,255,255,0.04);
+  padding: 2px 6px; border: 0.4px solid rgba(255,255,255,0.07);
+}
+
+/* ARROW */
+td.tarr { text-align: center; vertical-align: middle; padding: 0 2px; }
+
+/* ANSWER */
+td.ans { vertical-align: middle; border-left: 0.5px solid var(--ln2); }
+.ans-inner { padding: 18px 10px 18px 14px; }
+.ans-hl {
+  font-family: var(--serif); font-style: italic; font-size: 17px;
+  font-weight: 300; color: var(--cream); line-height: 1.4; margin-bottom: 7px;
+}
+.ans-body { font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.65; }
+.ans-pill {
+  display: inline-block; margin-top: 8px;
+  font-size: 8px; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--gold); border: 0.5px solid rgba(184,160,112,0.3);
+  padding: 2.5px 7px;
+}
+.ans-pill.soon { color: var(--cL); border-color: rgba(90,138,114,0.3); margin-left: 4px; }
+
+/* ── CONVERGENCE PANEL ── */
+td.conv { padding: 18px 14px; vertical-align: top; border-left: 0.5px solid var(--ln2); }
+.cv-eye {
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--quiet); margin-bottom: 6px; display: block;
+}
+.cv-name {
+  font-family: var(--serif); font-size: 38px; font-weight: 300;
+  font-style: italic; color: var(--cream); line-height: 0.88;
+  margin-bottom: 10px; letter-spacing: -0.01em;
+}
+.cv-name span { font-style: normal; }
+.cv-line { font-size: 12px; font-weight: 300; color: var(--dim); line-height: 1.6; margin-bottom: 14px; }
+.cv-sys { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; }
+.sys { display: flex; align-items: baseline; gap: 6px; }
+.sys-n { font-size: 9px; color: var(--quiet); min-width: 14px; }
+.sys-l { font-size: 11px; font-weight: 300; color: var(--muted); line-height: 1.5; }
+.sys.s2 .sys-l { color: var(--gold); font-weight: 400; }
+
+.cv-sep { width: 100%; height: 0.5px; background: var(--ln2); margin: 12px 0; }
+
+.cv-block-eye {
+  font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--quiet); margin-bottom: 7px; display: block;
+}
+.uc-row { margin-bottom: 7px; }
+.uc-n { font-size: 12px; font-weight: 400; color: var(--dim); display: block; line-height: 1.3; }
+.uc-m { font-size: 10px; font-weight: 300; color: var(--muted); }
+
+.gq-q {
+  font-family: var(--serif); font-size: 13px; font-style: italic;
+  font-weight: 300; color: var(--dim); line-height: 1.6; margin-bottom: 8px;
+}
+.gq-a { font-size: 9.5px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+
+/* ── FOOTER ── */
+.ft {
+  border-top: 0.5px solid var(--ln2); padding-top: 8px; margin-top: 10px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.ft-l { font-size: 9px; font-weight: 300; color: var(--quiet); }
+.ft-r { font-family: var(--serif); font-size: 11px; font-style: italic; color: var(--quiet); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hd">
+    <div>
+      <span class="hd-eye">The Coherence Map · Tri Vananda · Montara Hospitality Group</span>
+      <div class="hd-title">Where every <em>standard you hold</em><br>converges in one address.</div>
+    </div>
+    <div class="hd-right">
+      <img class="logo" src="https://treephol.github.io/Tri-Vananda/logo-white.png" alt="Tri Vananda">
+      <p class="hd-sub">For the family that has solved comfort — and is asking a different question. Read left to right.</p>
+    </div>
+  </div>
+
+  <table>
+    <colgroup>
+      <col class="c-cat">
+      <col class="c-std">
+      <col class="c-arr">
+      <col class="c-ans">
+      <col class="c-conv">
+    </colgroup>
+    <thead>
+      <tr>
+        <th class="th-cat"></th>
+        <th class="th-std">The standard you already hold</th>
+        <th></th>
+        <th class="th-ans">Tri Vananda's answer</th>
+        <th class="th-cv">Where it converges</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- WEALTH -->
+      <tr data-c="W">
+        <td class="cat">
+          <span class="ct-label" style="color:var(--cW);">Wealth</span>
+          <span class="ct-sub">Capital &amp;<br>legacy</span>
+        </td>
+        <td class="std"><div class="std-inner">
+          <div class="std-hl">Institutional stewardship. Capital structured for the generation that inherits it.</div>
+          <div class="std-body">Multi-generational discipline across asset classes and jurisdictions. The return that interests you now is the kind that outlasts you.</div>
+          <div class="std-tags">
+            <span class="tag">Family office</span><span class="tag">Succession</span><span class="tag">Long-horizon</span>
+          </div>
+        </div></td>
+        <td class="tarr"><svg width="14" height="8" viewBox="0 0 14 8"><line x1="0" y1="4" x2="10" y2="4" stroke="var(--cW)" stroke-width="0.8"/><polyline points="8,1.5 11,4 8,6.5" stroke="var(--cW)" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+        <td class="ans"><div class="ans-inner">
+          <div class="ans-hl">Hard asset inside a living estate. Value that holds across generations.</div>
+          <div class="ans-body">A considered stake within 232 acres of regenerative land — use value and asset value, passed intact to the generation that inherits it.</div>
+          <span class="ans-pill">Tri Vananda Residences · Now</span><span class="ans-pill soon">Health Resort by CLP · Opening Soon</span>
+        </div></td>
+
+        <td class="conv" rowspan="6">
+          <span class="cv-eye">The convergence point</span>
+          <div class="cv-name"><em>Tri</em><br><span>Vananda</span></div>
+          <div class="cv-line">The only address where every standard you hold exists in one life, together — permanently.</div>
+          <div class="cv-sys">
+            <div class="sys"><span class="sys-n">01</span><span class="sys-l">Land — 232 regenerative acres</span></div>
+            <div class="sys"><span class="sys-n">02</span><span class="sys-l">Health — longevity science, daily</span></div>
+            <div class="sys"><span class="sys-n">03</span><span class="sys-l">Community — 77 ownership families</span></div>
+            <div class="sys"><span class="sys-n">04</span><span class="sys-l">Service — world-renowned Thai hospitality</span></div>
+            <div class="sys s2"><span class="sys-n">05</span><span class="sys-l">Time — one place, for the long term</span></div>
+          </div>
+          <div class="cv-sep"></div>
+          <span class="cv-block-eye">Arriving at Tri Vananda</span>
+          <div class="uc-row"><span class="uc-n">Health Resort by Clinique La Prairie</span><span class="uc-m">Medical longevity · Q4 2026</span></div>
+          <div class="uc-row"><span class="uc-n">Phase Two Residences</span><span class="uc-m">Further residential offerings · 2027</span></div>
+          <div class="uc-row"><span class="uc-n">Wellness Expansion</span><span class="uc-m">Integrated ecosystem · Details to follow</span></div>
+          <div class="cv-sep"></div>
+          <span class="cv-block-eye">The gap this closes</span>
+          <div class="gq-q">"You have stayed in the world's finest addresses. Your capital is held by institutions of the highest order. You travel to the most advanced longevity science available. But none of them is your home. That is the only gap Tri Vananda is designed to close."</div>
+          <div class="gq-a">Montara Hospitality Group</div>
+        </td>
+      </tr>
+
+      <!-- LONGEVITY -->
+      <tr data-c="L">
+        <td class="cat">
+          <span class="ct-label" style="color:var(--cL);">Longevity</span>
+          <span class="ct-sub">Health &amp;<br>science</span>
+        </td>
+        <td class="std"><div class="std-inner">
+          <div class="std-hl">Evidence-based preventive medicine. You engineer your health — you don't guess at it.</div>
+          <div class="std-body">Cellular health, biomarker precision, and the highest clinical protocols available. Not wellness tourism — a permanent standard held year-round.</div>
+          <div class="std-tags">
+            <span class="tag">Preventive medicine</span><span class="tag">Cellular longevity</span><span class="tag">Precision health</span>
+          </div>
+        </div></td>
+        <td class="tarr"><svg width="14" height="8" viewBox="0 0 14 8"><line x1="0" y1="4" x2="10" y2="4" stroke="var(--cL)" stroke-width="0.8"/><polyline points="8,1.5 11,4 8,6.5" stroke="var(--cL)" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+        <td class="ans"><div class="ans-inner">
+          <div class="ans-hl">Clinique La Prairie longevity science at your own address — woven into daily life.</div>
+          <div class="ans-body">90 years of Swiss cellular research, resident-accessible from Q4 2026. Not a clinic you travel to — a health framework that lives where you do.</div>
+          <span class="ans-pill">Daily Wellness · Now</span><span class="ans-pill soon">CLP Health Resort · Q4 2026</span>
+        </div></td>
+      </tr>
+
+      <!-- HOSPITALITY -->
+      <tr data-c="H">
+        <td class="cat">
+          <span class="ct-label" style="color:var(--cH);">Hospitality</span>
+          <span class="ct-sub">Stays &amp;<br>retreats</span>
+        </td>
+        <td class="std"><div class="std-inner">
+          <div class="std-hl">Privacy, craft, anticipatory service. You notice it only when it is absent.</div>
+          <div class="std-body">A place designed with genuine intelligence — where service is anticipatory, privacy is architectural, and nothing requires management from you.</div>
+          <div class="std-tags">
+            <span class="tag">Absolute privacy</span><span class="tag">Anticipatory service</span><span class="tag">No friction</span>
+          </div>
+        </div></td>
+        <td class="tarr"><svg width="14" height="8" viewBox="0 0 14 8"><line x1="0" y1="4" x2="10" y2="4" stroke="var(--cH)" stroke-width="0.8"/><polyline points="8,1.5 11,4 8,6.5" stroke="var(--cH)" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+        <td class="ans"><div class="ans-inner">
+          <div class="ans-hl">The warmth and precision of world-renowned Thai hospitality — made permanent, for every ordinary day.</div>
+          <div class="ans-body">The operational grace that has defined Thailand's finest addresses applied to your residence, every day. Your family freed from all friction of management. Simply left to be present.</div>
+          <span class="ans-pill">Trisara · Now</span>
+        </div></td>
+      </tr>
+
+      <!-- COMMUNITY -->
+      <tr data-c="C">
+        <td class="cat">
+          <span class="ct-label" style="color:var(--cC);">Community</span>
+          <span class="ct-sub">Peers &amp;<br>belonging</span>
+        </td>
+        <td class="std"><div class="std-inner">
+          <div class="std-hl">You don't need a social calendar. You need people worth knowing.</div>
+          <div class="std-body">High-trust peers. Founders, stewards, thinkers. This kind of community cannot be manufactured — only earned through proximity across time. You have looked for it. Rarely found it.</div>
+          <div class="std-tags">
+            <span class="tag">High-trust peers</span><span class="tag">Multi-generational</span><span class="tag">Shared purpose</span>
+          </div>
+        </div></td>
+        <td class="tarr"><svg width="14" height="8" viewBox="0 0 14 8"><line x1="0" y1="4" x2="10" y2="4" stroke="var(--cC)" stroke-width="0.8"/><polyline points="8,1.5 11,4 8,6.5" stroke="var(--cC)" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+        <td class="ans"><div class="ans-inner">
+          <div class="ans-hl">Reserved for just 77 families. An intimacy that cannot be scaled — by design.</div>
+          <div class="ans-body">A community earned through proximity — a shared farm, nine lakes, 232 acres of common ground. The real encounters happen in the unscripted spaces between.</div>
+          <span class="ans-pill">77 Families · By Invitation</span>
+        </div></td>
+      </tr>
+
+      <!-- DINING -->
+      <tr data-c="D">
+        <td class="cat">
+          <span class="ct-label" style="color:var(--cD);">Dining</span>
+          <span class="ct-sub">Food &amp;<br>craft</span>
+        </td>
+        <td class="std"><div class="std-inner">
+          <div class="std-hl">Michelin standard is your baseline. You know when farm-to-table is genuine.</div>
+          <div class="std-body">Provenance, technique, and the table as ritual. You want the restaurant that matches what you already know — where land and plate have a real relationship.</div>
+          <div class="std-tags">
+            <span class="tag">Michelin standard</span><span class="tag">Farm provenance</span><span class="tag">Table as ritual</span>
+          </div>
+        </div></td>
+        <td class="tarr"><svg width="14" height="8" viewBox="0 0 14 8"><line x1="0" y1="4" x2="10" y2="4" stroke="var(--cD)" stroke-width="0.8"/><polyline points="8,1.5 11,4 8,6.5" stroke="var(--cD)" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+        <td class="ans"><div class="ans-inner">
+          <div class="ans-hl">Michelin ★ and a working estate farm — at your address, without a reservation.</div>
+          <div class="ans-body">PRU (Michelin ★), Jampa Farm Table, La Crique, Thai Library, Cielo &amp; Spice. Five venues, one working farm at the centre of the estate — grown from the land your family lives on.</div>
+          <span class="ans-pill">PRU · Jampa · La Crique · Thai Library · Cielo &amp; Spice</span>
+        </div></td>
+      </tr>
+
+      <!-- HOME -->
+      <tr data-c="M">
+        <td class="cat" style="border-bottom:none;">
+          <span class="ct-label" style="color:var(--cM);">Home</span>
+          <span class="ct-sub">Where life<br>belongs</span>
+        </td>
+        <td class="std" style="border-bottom:none;"><div class="std-inner">
+          <div class="std-hl">You have stayed in all of them. Beautiful. Branded. Serviced. None became home.</div>
+          <div class="std-body">Aman Residences. Four Seasons Private. Rosewood Branded Homes. You hold their standards. But none has earned what matters: your family returning because it is where you belong.</div>
+          <div class="std-tags">
+            <span class="tag">Branded residences</span><span class="tag">World-class service</span><span class="tag">Still not home</span>
+          </div>
+        </div></td>
+        <td class="tarr" style="border-bottom:none;"><svg width="14" height="8" viewBox="0 0 14 8"><line x1="0" y1="4" x2="10" y2="4" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/><polyline points="8,1.5 11,4 8,6.5" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+        <td class="ans" style="border-bottom:none;"><div class="ans-inner">
+          <div class="ans-hl">Phuket's interior. 232 acres of forest and water, 15 minutes from an international airport — and nowhere else on earth like it.</div>
+          <div class="ans-body">Not a resort destination — a place with genuine character: land that changes across seasons, a culture of warmth that runs deep, and the kind of daily life that earns its place in family memory without trying.</div>
+          <span class="ans-pill" style="color:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.14);">Thep Krasatti · Phuket · 232 Acres</span>
+        </div></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="ft">
+    <span class="ft-l">Tri Vananda · Thep Krasatti, Thalang District, Phuket 83110 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dbb3beb7b7b49bafa9b2adbab5bab5bfbaf5b8b4b6">[email&#160;protected]</a> · For p

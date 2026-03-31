@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Life You Intended to Build — Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ══════════════════════════════════════
+   V3 COLOR TOKENS — EXACT
+══════════════════════════════════════ */
+:root {
+  --ink:     #181614;
+  --ink-2:   #3d3a37;
+  --ink-3:   #6e6a65;
+  --ink-4:   #9e9a95;
+  --paper:   #f4f1ec;
+  --paper-2: #ece8e1;
+  --rule:    #d4cfc8;
+  --accent:  #233f2f;
+  --serif:   'EB Garamond', Georgia, serif;
+  --display: 'Playfair Display', 'Times New Roman', serif;
+  --sans:    'Jost', 'Helvetica Neue', sans-serif;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:16px; }
+
+/* Dark outer — V3 */
+body { background:#161412; font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+
+/* Book wrapper — V3 */
+.book { max-width:900px; margin:0 auto; padding:36px 20px 80px; }
+
+/* Page block — V3 structure, V2 breathing room */
+.page {
+  background: var(--paper);
+  padding: 48px 60px 60px;
+  border-bottom: 1px solid #0e0c0a;
+}
+
+/* ── PAGE STRIPE (V3) ── */
+.page-stripe {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 0.5px solid var(--rule);
+  padding-bottom: 10px;
+  margin-bottom: 40px;
+}
+.page-stripe span {
+  font-family: var(--sans);
+  font-size: 8.5px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+/* Page footer */
+.page-foot {
+  display: flex;
+  justify-content: space-between;
+  border-top: 0.5px solid var(--rule);
+  padding-top: 10px;
+  margin-top: 44px;
+}
+.page-foot span {
+  font-family: var(--sans);
+  font-size: 8.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+/* ── OPENING — V2 spaciousness, V3 type ── */
+.p1-kicker {
+  font-family: var(--sans);
+  font-size: 8.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 16px;
+}
+.p1-title {
+  font-family: var(--display);
+  font-size: clamp(40px, 5.8vw, 64px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 20px;
+  max-width: 580px;
+}
+.p1-title em { font-style: italic; }
+.title-rule { width: 36px; height: 0.5px; background: var(--ink-3); margin-bottom: 20px; }
+.byline {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid var(--rule);
+}
+.byline-label { font-family: var(--sans); font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+.byline-date  { font-family: var(--sans); font-size: 9px; letter-spacing: 0.1em; color: var(--ink-4); }
+
+/* ── STANDFIRST ── */
+.standfirst {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.62;
+  color: var(--ink-2);
+  font-style: italic;
+  max-width: 560px;
+  margin-bottom: 28px;
+}
+
+/* ── KEY MESSAGES — new component ── */
+.key-msgs {
+  border-top: 1px solid var(--accent);
+  border-bottom: 0.5px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 28px 0 0;
+}
+.key-msg {
+  padding: 16px 20px 18px;
+  border-right: 0.5px solid var(--rule);
+}
+.key-msg:last-child { border-right: none; }
+.key-msg-n {
+  font-family: var(--sans);
+  font-size: 7.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  display: block;
+  margin-bottom: 6px;
+}
+.key-msg-text {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+/* ── STAT PAIR (V2 style, V3 colors) ── */
+.stat-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 0.5px solid var(--rule);
+  border-bottom: 0.5px solid var(--rule);
+  margin: 32px 0 0;
+}
+.stat-item {
+  padding: 24px 0 20px;
+  border-right: 0.5px solid var(--rule);
+}
+.stat-item:last-child { border-right: none; padding-left: 28px; }
+.stat-item:first-child { padding-right: 28px; }
+.stat-n {
+  font-family: var(--display);
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.stat-d {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--ink-3);
+  line-height: 1.55;
+}
+.stat-s {
+  font-family: var(--sans);
+  font-size: 7.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-top: 6px;
+  display: block;
+}
+
+/* ── BODY TEXT — bumped from V3's 14.5px ── */
+.body {
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.76;
+  color: var(--ink-2);
+  letter-spacing: 0.003em;
+}
+.body p { margin-bottom: 1em; }
+.body p:last-child { margin-bottom: 0; }
+.body strong, .body b { font-weight: 500; color: var(--ink); }
+
+/* Dropcap — V3 */
+.dropcap::first-letter {
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 0.8;
+  float: left;
+  margin-right: 5px;
+  margin-top: 7px;
+  color: var(--ink);
+}
+
+/* ── SECTION HEADER — V2 large roman, V3 colors ── */
+.sec-hd {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  border-bottom: 0.5px solid var(--rule);
+  padding-bottom: 14px;
+  margin-bottom: 22px;
+}
+.roman {
+  font-family: var(--display);
+  font-size: clamp(52px, 7vw, 72px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rule);
+  line-height: 1;
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+.sec-meta { flex: 1; }
+.sec-kicker {
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  display: block;
+  margin-bottom: 5px;
+}
+.sec-title {
+  font-family: var(--display);
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* ── MOMENT BAR / PULL QUOTE — V3 ── */
+.moment-bar {
+  border-left: 1.5px solid var(--accent);
+  padding: 16px 0 16px 20px;
+  margin: 28px 0;
+}
+.moment-bar p {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.28;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.moment-bar .attr {
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-top: 10px;
+  display: block;
+}
+
+/* ── DATA CALLOUT (V3 style) ── */
+.data-call {
+  background: var(--paper-2);
+  border-top: 1px solid var(--ink-2);
+  padding: 14px 20px;
+  margin: 24px 0;
+}
+.data-call p {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--ink-3);
+  margin: 0;
+}
+.data-call p strong { color: var(--ink-2); font-weight: 500; }
+
+/* ── PULL FULL WIDTH ── */
+.pull-full {
+  border-top: 0.5px solid var(--rule);
+  border-bottom: 0.5px solid var(--rule);
+  padding: 28px 0;
+  margin: 32px 0;
+  text-align: center;
+}
+.pull-full p {
+  font-family: var(--display);
+  font-size: clamp(18px, 2.6vw, 26px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.28;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  max-width: 540px;
+  margin: 0 auto 10px;
+}
+.pull-full .pull-sub {
+  font-family: var(--sans);
+  font-size: 8.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+/* ── SYSTEM GRID (V2 4-cell, V3 colors) ── */
+.sys-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 24px 0;
+}
+.sys-item {
+  background: var(--paper);
+  padding: 20px 22px;
+}
+.sys-num {
+  font-family: var(--sans);
+  font-size: 7.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  display: block;
+  margin-bottom: 4px;
+}
+.sys-title {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.sys-body {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  line-height: 1.62;
+  color: var(--ink-3);
+}
+
+/* ── REFRAME BOX (V2, V3 colors) ── */
+.reframe {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 0.5px solid var(--rule);
+  margin: 28px 0;
+}
+.reframe-a { padding: 20px 24px; background: var(--paper-2); border-right: 0.5px solid var(--rule); }
+.reframe-b { padding: 20px 24px; background: var(--accent); }
+.reframe-lbl {
+  font-family: var(--sans);
+  font-size: 7.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  display: block;
+  margin-bottom: 8px;
+}
+.reframe-b .reframe-lbl { color: rgba(255,255,255,0.4); }
+.reframe-q {
+  font-family: var(--display);
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--ink-2);
+}
+.reframe-b .reframe-q { color: var(--paper); }
+
+/* ── H-RULE ── */
+.h-rule { width:100%; height:0.5px; background:var(--rule); margin:28px 0; }
+
+/* ── CREATIVE IMAGE TREATMENTS ── */
+
+/* Cinematic full-bleed — escapes both page paddings */
+.img-cin {
+  margin-left: -60px;
+  margin-right: -60px;
+  overflow: hidden;
+  line-height: 0;
+}
+.img-cin img { width:100%; object-fit:cover; display:block; }
+.img-cin-cap {
+  padding: 8px 60px 0;
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  line-height: 1.6;
+}
+.img-cin-cap b { color: var(--ink-3); font-weight: 500; }
+
+/* Right-edge bleed portrait */
+.img-bleed-r {
+  margin-right: -60px;
+  overflow: hidden;
+  line-height: 0;
+}
+.img-bleed-r img { width:100%; aspect-ratio:4/5; object-fit:cover; display:block; }
+
+/* Diptych */
+.img-diptych {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  line-height: 0;
+  margin: 24px 0 6px;
+}
+.img-diptych img { width:100%; aspect-ratio:1/1; object-fit:cover; display:block; }
+
+/* Standard img caption */
+.img-cap {
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+.img-cap b { color: var(--ink-3); font-weight: 500; }
+
+/* ── VISIT BLOCK ── */
+.visit {
+  border-top: 0.5px solid var(--rule);
+  border-bottom: 0.5px solid var(--rule);
+  padding: 28px 0;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+}
+.visit-h {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.visit-p {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--ink-3);
+  max-width: 360px;
+}
+.visit-d {
+  text-align: right;
+  flex-shrink: 0;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  line-height: 1.7;
+  color: var(--ink-4);
+}
+.visit-d a { color: var(--accent); text-decoration: none; }
+
+/* ── FOOTNOTES ── */
+.footnotes {
+  border-top: 0.5px solid var(--rule);
+  margin-top: 36px;
+  padding-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 28px;
+}
+.fn {
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  color: var(--ink-4);
+  line-height: 1.55;
+}
+.fn b { font-weight: 500; color: var(--ink-3); }
+sup.cite {
+  font-family: var(--sans);
+  font-size: 7px;
+  font-weight: 500;
+  color: var(--accent);
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+/* ── SPACERS ── */
+.sp8{height:8px} .sp16{height:16px} .sp24{height:24px} .sp32{height:32px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:680px){
+  .page { padding:32px 24px 44px; }
+  .key-msgs { grid-template-columns:1fr; }
+  .key-msg { border-right:none; border-bottom:0.5px solid var(--rule); }
+  .key-msg:last-child { border-bottom:none; }
+  .stat-pair { grid-template-columns:1fr; }
+  .stat-item, .stat-item:first-child, .stat-item:last-child { border-right:none; border-bottom:0.5px solid var(--rule); padding:18px 0; }
+  .stat-item:last-child { border-bottom:none; }
+  .sys-grid { grid-template-columns:1fr; }
+  .reframe { grid-template-columns:1fr; }
+  .reframe-a { border-right:none; border-bottom:0.5px solid var(--rule); }
+  .visit { flex-direction:column; gap:20px; }
+  .visit-d { text-align:left; }
+  .footnotes { grid-template-columns:1fr; }
+  .img-cin { margin-left:-24px; margin-right:-24px; }
+  .img-cin-cap { padding-left:24px; padding-right:24px; }
+  .img-bleed-r { margin-right:-24px; }
+  .book { padding:20px 8px 60px; }
+}
+</style>
+</head>
+<body>
+<div class="book">
+
+
+<!-- ══════════════════════════════════════
+     PAGE 1 — OPENING
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-stripe">
+    <span>Perspective — Life &amp; Family</span>
+    <span>Long-form</span>
+  </div>
+
+  <p class="p1-kicker">Residence · Legacy · Continuity</p>
+  <h1 class="p1-title">The Life You<br><em>Intended</em><br>to Build</h1>
+  <div class="title-rule"></div>
+
+  <div class="byline">
+    <span class="byline-label">Editorial</span>
+    <span class="byline-date">March 2026</span>
+    <span class="byline-date" style="margin-left:auto;">Asia &amp; Pacific</span>
+  </div>
+
+  <!-- Hero: cinematic full-bleed -->
+  <div class="img-cin">
+    <img src="mood.jpg"
+         alt="Late afternoon light across Phuket's interior — nine lakes, forest, the scale of a landscape that changes what daily life feels like"
+         style="height:280px; object-position:center 45%;">
+  </div>
+  <p class="img-cin-cap"><b>Above:</b> Thep Krasatti, Phuket. At 232 acres of regenerative landscape, the question shifts from what a place offers to what it quietly enables.</p>
+
+  <div class="sp24"></div>
+
+  <p class="standfirst">Somewhere between the fortieth flight of the year and the third school district in five years, a quiet question takes root. Not a crisis. Just a gap between the life that was planned and the one that is actually being lived.</p>
+
+  <!-- Key messages strip -->
+  <div class="key-msgs">
+    <div class="key-msg">
+      <span class="key-msg-n">Argument One</span>
+      <div class="key-msg-text">The search has been framed as a property decision. It is not. It never was.</div>
+    </div>
+    <div class="key-msg">
+      <span class="key-msg-n">Argument Two</span>
+      <div class="key-msg-text">Wealth does not solve fragmented time, disconnected family, or reactive health.</div>
+    </div>
+    <div class="key-msg">
+      <span class="key-msg-n">Argument Three</span>
+      <div class="key-msg-text">The answer is a life system — designed infrastructure, not a better address.</div>
+    </div>
+  </div>
+
+  <!-- Stat pair -->
+  <div class="stat-pair">
+    <div class="stat-item">
+      <div class="stat-n">78%</div>
+      <div class="stat-d">of UHNW individuals now rank family and close friendship above investment returns, succession, and health.</div>
+      <span class="stat-s">Luxury Institute · UHNW Values Research, 2022</span>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">$124tn</div>
+      <div class="stat-d">projected intergenerational wealth transfer, 2024–2048 — the largest in recorded history. The rising generation inherits assets and, more critically, the question of what to do with them.</div>
+      <span class="stat-s">Altrata / Wealth-X · 2025</span>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span>1</span>
+    <span>For private circulation</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 2 — THE ARGUMENT
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-stripe">
+    <span>Perspective — Life &amp; Family</span>
+    <span>The Argument</span>
+  </div>
+
+
+  <!-- I -->
+  <div style="margin-bottom:48px;">
+    <div class="sec-hd">
+      <div class="roman">I</div>
+      <div class="sec-meta">
+        <span class="sec-kicker">The Misunderstanding</span>
+        <div class="sec-title">Still Looking</div>
+      </div>
+    </div>
+
+    <div class="body dropcap">
+      <p>Every year the shortlist gets more refined. The addresses are better. The architecture is more considered. And yet the search continues — because what is being looked for cannot be found on a property listing.</p>
+      <p>The misunderstanding is categorical. This is not a problem of finding the right property. It is a problem of designing the right infrastructure — the environment within which health, family continuity, and daily coherence are organised as a whole rather than continuously managed as separate problems.</p>
+    </div>
+
+    <div class="moment-bar">
+      <p>"What UHNWs are seeking is not more. They are seeking better — more ordinary time with the people they love, in places that make that time feel like enough."</p>
+      <span class="attr">Luxury Institute · UHNW Values &amp; Priorities Research, 2022</span>
+    </div>
+
+    <!-- Right-edge bleed portrait -->
+    <div class="img-bleed-r">
+      <img src="editorial-intro.jpg"
+           alt="A man at a floor-to-ceiling window, city below — present in form, absent in attention"
+           style="aspect-ratio:8/5;">
+    </div>
+    <p class="img-cap"><b>Above:</b> The search that continues past the point when it should have ended.</p>
+  </div>
+
+
+  <!-- II -->
+  <div style="margin-bottom:48px;">
+    <div class="sec-hd">
+      <div class="roman">II</div>
+      <div class="sec-meta">
+        <span class="sec-kicker">The Real Constraint</span>
+        <div class="sec-title">What Wealth<br><em>Doesn't Solve</em></div>
+      </div>
+    </div>
+
+    <div class="body">
+      <p><b>Fragmented time.</b> McKinsey research on senior executive time-use found that fewer than 30% of hours are spent on what executives identify as their highest priorities. For those who define highest priority as family, that figure is unforgiving.</p>
+      <p><b>Disconnected family.</b> Each individual decision — school, city, business base — is locally rational. The aggregate is a family systematically separated, held together by intention and logistics, slowly losing the thread of shared daily life that turns a family into a culture.</p>
+      <p><b>Reactive health.</b> Most people at this level manage health the way they manage crises — responding when something signals concern. That is not a health system. It is health management in the absence of infrastructure, dressed in premium appointments.</p>
+    </div>
+
+    <div class="data-call">
+      <p>The WHO now classifies loneliness as a global public health priority — estimating that social isolation carries a mortality risk equivalent to <strong>smoking 15 cigarettes a day</strong>. Among wealthy individuals, the Luxury Institute describes loneliness as "one of the best-kept secrets" of ultra-wealthy life: a life rich in contact, thin in the relationships that develop through repetition and ordinariness.</p>
+    </div>
+
+    <!-- Grid-interrupt cinematic — breaks mid-section -->
+    <div class="img-cin" style="margin-top:24px;">
+      <img src="hero.jpg"
+           alt="Nine lakes at dawn — still water, mist rising, the silence of a landscape before the day begins"
+           style="height:190px; object-position:center 55%;">
+    </div>
+    <p class="img-cin-cap"><b>Above:</b> 232 acres. The land as the first structural argument.</p>
+  </div>
+
+
+  <!-- III -->
+  <div>
+    <div class="sec-hd">
+      <div class="roman">III</div>
+      <div class="sec-meta">
+        <span class="sec-kicker">The Cost of Fragmentation</span>
+        <div class="sec-title">The Quiet Drift</div>
+      </div>
+    </div>
+
+    <div class="body">
+      <p>Fragmentation does not produce a crisis. It produces a drift — quiet, accumulative, and very difficult to reverse once the pattern is embedded.</p>
+      <p>The cost shows up in distance: the grandparent who is loved but not known, the adult children with their own geographies, the gathering that keeps being moved to next year. The 75-year Harvard Study of Adult Development found that the quality of close relationships is the single strongest predictor of long-term health and happiness — more reliable than wealth, social standing, or intelligence.<sup class="cite">4</sup></p>
+    </div>
+
+    <div class="pull-full">
+      <p>"The families that hold together across generations share one characteristic above all others: they have a place that holds them."</p>
+      <span class="pull-sub">Sand Hill Global Advisors · Beyond Wealth: The Top 7 Priorities of UHNW Families, 2025</span>
+    </div>
+
+    <!-- Diptych -->
+    <div class="img-diptych">
+      <img src="family.jpg"
+           alt="A grandfather and grandchild at the water's edge — both absorbed in the same quiet thing">
+      <img src="circle.jpg"
+           alt="A family walking the lake path at morning — three generations, unhurried">
+    </div>
+    <p class="img-cap"><b>Above:</b> Continuity not as an occasion, but as an ordinary afternoon.</p>
+  </div>
+
+  <div class="page-foot">
+    <span>2</span>
+    <span>For private circulation</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 3 — THE SHIFT & SYSTEM
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-stripe">
+    <span>Perspective — Life &amp; Family</span>
+    <span>The Infrastructure</span>
+  </div>
+
+
+  <!-- IV -->
+  <div style="margin-bottom:48px;">
+    <div class="sec-hd">
+      <div class="roman">IV</div>
+      <div class="sec-meta">
+        <span class="sec-kicker">The Shift</span>
+        <div class="sec-title">A Different Category<br><em>of Decision</em></div>
+      </div>
+    </div>
+
+    <div class="body">
+      <p>A property performs a function within a life structure that already exists. It does not change the structure. A life system is different in kind — the infrastructure within which health, family continuity, and daily coherence are organised as a whole, not pursued separately through separate resources.</p>
+      <p>Knight Frank's <em>Wealth Report 2024</em> documented this shift: UHNW buyers in the 40–60 bracket are moving away from address-as-status toward what the report calls "environment-as-infrastructure" — places that actively reduce the cost of living well, rather than simply reflecting that it has been achieved.<sup class="cite">9</sup></p>
+    </div>
+
+    <div class="reframe">
+      <div class="reframe-a">
+        <span class="reframe-lbl">The question being asked</span>
+        <div class="reframe-q">"Is this a sound property in a strong market?"</div>
+      </div>
+      <div class="reframe-b">
+        <span class="reframe-lbl">The question worth asking</span>
+        <div class="reframe-q">"Does this make the life I want for my family structurally easier to sustain?"</div>
+      </div>
+    </div>
+
+    <div class="body">
+      <p>This is, in most cases, the last residential decision that needs to be made. Not because the search ends — because the question finally has a real answer.</p>
+    </div>
+  </div>
+
+  <div class="h-rule"></div>
+
+
+  <!-- V -->
+  <div style="margin-bottom:48px;">
+    <div class="sec-hd">
+      <div class="roman">V</div>
+      <div class="sec-meta">
+        <span class="sec-kicker">The System</span>
+        <div class="sec-title">Four Components.<br><em>One Coherent Life.</em></div>
+      </div>
+    </div>
+
+    <div class="body dropcap">
+      <p>Tri Vananda, in Phuket's Thep Krasatti district, is a designed life system for multigenerational families — four integrated components, each addressing a constraint most premium environments leave unresolved.</p>
+    </div>
+
+    <div class="sp16"></div>
+
+    <div class="sys-grid">
+      <div class="sys-item">
+        <span class="sys-num">One</span>
+        <div class="sys-title">Land</div>
+        <div class="sys-body">232 acres of regenerative landscape. Nine lakes. Regrown forest. Biophilic conditions that research links to lower cortisol, improved sleep, and higher cognitive clarity — not aesthetic advantages. Operational ones.</div>
+      </div>
+      <div class="sys-item">
+        <span class="sys-num">Two</span>
+        <div class="sys-title">Health — Clinique La Prairie</div>
+        <div class="sys-body">Founded in 1931 and today the global reference for evidence-based preventive medicine. Woven into the daily environment — not a clinic to visit on a schedule. An ambient system the place sustains.</div>
+      </div>
+      <div class="sys-item">
+        <span class="sys-num">Three</span>
+        <div class="sys-title">Service — Trisara Standard</div>
+        <div class="sys-body">Thailand's benchmark for residential operational excellence. The effect is not luxury in an amenity sense — it is the removal of management friction entirely. The family is free to simply be present.</div>
+      </div>
+      <div class="sys-item">
+        <span class="sys-num">Four</span>
+        <div class="sys-title">Community — By Design</div>
+        <div class="sys-body">Social architecture built so that intergenerational connection is the natural daily outcome. Campbell Collaboration reviews across 500+ trials found this kind of contact is among the most reliable known interventions for long-term wellbeing.</div>
+      </div>
+    </div>
+
+    <!-- Cross-column cinematic float after system grid -->
+    <div class="img-cin" style="margin-top:28px;">
+      <img src="jampa.jpg"
+           alt="Three generations on a wooden bridge over water — unhurried, forest behind, nobody performing anything"
+           style="height:250px; object-position:center 40%;">
+    </div>
+    <p class="img-cin-cap"><b>Above:</b> Every element — the materials, the light, the scale — designed in service of the life the whole system exists to support.</p>
+  </div>
+
+  <div class="page-foot">
+    <span>3</span>
+    <span>For private circulation</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 4 — OUTCOME & DECISION
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-stripe">
+    <span>Perspective — Life &amp; Family</span>
+    <span>Conclusion</span>
+  </div>
+
+
+  <!-- VI -->
+  <div style="margin-bottom:48px;">
+    <div class="sec-hd">
+      <div class="roman">VI</div>
+      <div class="sec-meta">
+        <span class="sec-kicker">The Family Outcome</span>
+        <div class="sec-title">What Compounds Across<br><em>Generations</em></div>
+      </div>
+    </div>
+
+    <div class="body dropcap">
+      <p>The change is not dramatic on arrival. It is structural over time. Health becomes consistent because the environment sustains it. Family density changes without anyone managing it — the grandparent who was present four times a year becomes a regular presence. The encounters that form character happen because the place makes them structurally inevitable.</p>
+      <p>Across the second generation, the shared place becomes the shared reference — the story a family tells about who it is. The transmission of values that Citco identified as the single most pressing non-investment concern for family offices globally happens here, in the kitchen, on the lake path, in a conversation that started because two people happened to walk the same route at the same time.<sup class="cite">8</sup></p>
+    </div>
+
+    <div class="data-call">
+      <p>Research in <em>Developmental Cognitive Neuroscience</em> (2024) found that grandparent-grandchild proximity generates distinct neurological coupling — with measurable effects on development that <strong>equivalent parent-child interaction does not replicate</strong>. The effect is most pronounced when all three generations are present in the same daily environment.<sup class="cite">6</sup></p>
+    </div>
+  </div>
+
+
+  <!-- VII -->
+  <div>
+    <div class="sec-hd">
+      <div class="roman">VII</div>
+      <div class="sec-meta">
+        <span class="sec-kicker">The Decision</span>
+        <div class="sec-title">The Clarity That<br><em>Arrives Late</em></div>
+      </div>
+    </div>
+
+    <div class="body">
+      <p>Wealth advisors say that the residential question is almost never engaged with at this level of seriousness in the initial decision. It becomes clear later — when the children are adults with their own geographies, when the gathering that used to happen naturally no longer does.</p>
+      <p>The decision, framed correctly, is not whether a place is beautiful or financially sound. It is whether it resolves the structural constraints that have accumulated: fragmented time, disconnected family, reactive health, and a life without a coherent centre. For the right family, at the right stage, this is not a luxury decision. It is a rational answer to a set of problems that no further acquisition will resolve.</p>
+    </div>
+
+    <div class="moment-bar">
+      <p>The measure of a life is the quality of the relationships sustained within it — and the degree to which the choices made actively supported those relationships, or quietly made them harder.</p>
+    </div>
+
+    <div class="body">
+      <p>What was being searched for was never a better property. It was a place worth building a life around — one that earns its way into the centre of a family's sense of itself, slowly, across the seasons and years of simply being there.</p>
+    </div>
+
+    <!-- Visit -->
+    <div class="visit">
+      <div>
+        <div class="visit-h">Hosted visits, by arrangement.</div>
+        <p class="visit-p">Available to visit privately for those considering what a structural change of this kind might look like. Visits are unhurried, without agenda, and designed around the family — not the property.</p>
+      </div>
+      <div class="visit-d">
+        Tri Vananda · Phuket, Thailand<br>
+        Thep Krasatti, Thalang District<br>
+        232 acres · 15 min from Phuket International<br>
+        <br>
+        <a href="/cdn-cgi/l/email-protection#771e1911183703051e011619161913165914181a"><span class="__cf_email__" data-cfemail="b6dfd8d0d9f6c2c4dfc0d7d8d7d8d2d798d5d9db">[email&#160;protected]</span></a><br>
+        +66 95-371-9494
+      </div>
+    </div>
+  </div>
+
+  <div class="footnotes">
+    <p class="fn"><b>1</b> Luxury Institute, <em>Evolving Values and Priorities of Ultra-High-Net-Worth Families</em>, 2022.</p>
+    <p class="fn"><b>2</b> Altrata / Wealth-X, intergenerational transfer projections, 2025. Global figure: $124tn, 2024–2048.</p>
+    <p class="fn"><b>3</b> Julius Baer, <em>Family Barometer 2024</em>. Intergenerational continuity cited as defining concern globally.</p>
+    <p class="fn"><b>4</b> Waldinger, R. &amp; Schulz, M., <em>The Good Life</em>, 2023. Harvard Study of Adult Development, begun 1938.</p>
+    <p class="fn"><b>5</b> Jones, K., <em>Health &amp; Social Care in the Community</em>, 2025. 62 studies, 16 countries, 289,071 participants.</p>
+    <p class="fn"><b>6</b> Dikker, S. et al., <em>Developmental Cognitive Neuroscience</em>, 2024. Grandparent-grandchild inter-brain coupling.</p>
+    <p class="fn"><b>7</b> Campbell Collaboration, <em>Campbell Systematic Reviews</em>, 2023 &amp; 2024. 500+ intergenerational trials.</p>
+    <p class="fn"><b>8</b> Citco, <em>10 Key Challenges for Family Offices in 2024</em>. Values transfer cited as primary non-investment concern.</p>
+    <p class="fn"><b>9</b> Knight Frank, <em>The Wealth Report 2024</em>. Environment-as-infrastructure shift.</p>
+    <p class="fn"><b>10</b> Sand Hill Global Advisors, <em>Beyond Wealth: The Top 7 Priorities of UHNW Families</em>, 2025.</p>
+    <p class="fn"><b>11</b> McKinsey &amp; Company, <em>Making Time Management the Organisation's Priority</em>.</p>
+    <p class="fn"><b>12</b> World Health Organisation, <em>Social Isolation and Loneliness</em>, 2023.</p>
+    <p class="fn"><b>13</b> Altrata, <em>World Ultra Wealth Report 2025</em>. UHNW projections by region to 2030.</p>
+    <p class="fn"><b>14</b> Gonçalves et al., <em>Int. J. Environmental Research and Public Health</em>, 2023. Biophilic design outcomes.</p>
+  </div>
+
+  <div

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tri Vananda — C1 & C2 Campaign Summary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --grn:#233f2f;--grn-l:#2d5a40;--grn-bg:rgba(35,63,47,.08);--grn-bd:rgba(35,63,47,.35);
+  --gold:#c4a265;--gold-d:rgba(196,162,101,.10);--gold-l:rgba(196,162,101,.5);--gold-bd:rgba(196,162,101,.25);
+  --ink:#0e0c0a;--ink2:#1a1816;--ink3:#2e2b27;
+  --cream:#e8e2d8;--mist:#a09888;
+  --red:#cf554e;--red-bg:rgba(207,85,78,.08);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost','Helvetica Neue',sans-serif;
+}
+html,body{font-family:var(--sans);background:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden;}
+
+.deck{width:100vw;height:100vh;position:relative;}
+.slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .55s ease;display:flex;flex-direction:column;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:all;}
+
+/* NAV */
+.nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;z-index:100;background:rgba(0,0,0,.55);backdrop-filter:blur(16px);border-radius:22px;padding:6px 16px;border:1px solid rgba(255,255,255,.05);}
+.nb{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.4);cursor:pointer;font:12px var(--sans);padding:6px 14px;border-radius:12px;transition:all .2s;letter-spacing:.04em;}
+.nb:hover{border-color:rgba(255,255,255,.35);color:#fff;}
+.nd{display:flex;gap:5px;align-items:center;}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.12);cursor:pointer;transition:all .3s;}
+.dot.on{width:18px;border-radius:3px;background:var(--gold);}
+.nc{font:300 11px/1 var(--sans);letter-spacing:.08em;color:rgba(255,255,255,.25);}
+
+/* SHARED */
+.hd{display:flex;justify-content:space-between;align-items:flex-start;padding:30px 48px 0;flex-shrink:0;}
+.ft{display:flex;justify-content:space-between;align-items:center;padding:0 48px 22px;margin-top:auto;flex-shrink:0;}
+.ft span{font:300 9.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.2);}
+.ey{font:400 10px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:10px;}
+.st{font:300 clamp(26px,3.4vw,42px)/1.1 var(--serif);color:var(--cream);letter-spacing:-.015em;}
+.st em{font-style:italic;color:var(--gold);}
+.bg{display:inline-block;font:500 9px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:2px;border:1px solid;}
+.bg1{color:var(--cream);border-color:var(--grn-bd);background:rgba(35,63,47,.3);}
+.bg2{color:var(--gold);border-color:var(--gold-bd);background:var(--gold-d);}
+
+/* SPLIT */
+.sp{display:grid;grid-template-columns:1fr 1fr;flex:1;overflow:hidden;}
+.pn{padding:28px 36px;display:flex;flex-direction:column;overflow-y:auto;}
+.p1{background:var(--grn-bg);border-right:1px solid rgba(255,255,255,.03);}
+.p2{background:var(--gold-d);}
+.pt{font:300 clamp(18px,2.2vw,26px)/1.15 var(--serif);color:var(--cream);margin-bottom:4px;}
+.ps{font:300 12px/1.45 var(--sans);letter-spacing:.03em;color:var(--mist);}
+
+/* TABLE */
+.tb{width:100%;border-collapse:collapse;margin-top:14px;}
+.tb td{padding:12px 16px;font:300 13px/1.65 var(--sans);color:var(--cream);border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;}
+.tb td:first-child{width:115px;font-weight:400;font-size:11.5px;letter-spacing:.03em;color:var(--gold-l);}
+.tb td strong{font-weight:500;color:#fff;}
+.tg{display:inline-block;font:300 10.5px/1 var(--sans);letter-spacing:.04em;padding:5px 10px;border-radius:2px;margin:0 4px 4px 0;}
+.g1{background:rgba(35,63,47,.22);color:rgba(232,226,216,.5);border:1px solid rgba(35,63,47,.35);}
+.g2{background:var(--gold-d);color:var(--gold-l);border:1px solid rgba(196,162,101,.15);}
+
+/* METRIC */
+.mr{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:12px;}
+.mx{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);padding:18px 16px;}
+.mv{font:300 clamp(22px,2.4vw,32px)/1 var(--serif);letter-spacing:-.01em;margin-bottom:4px;}
+.mv.c1{color:var(--grn-l);}
+.mv.c2{color:var(--gold);}
+.ml{font:300 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mist);}
+
+/* CALLOUT */
+.co{padding:14px 18px;border-left:2px solid;font:300 13px/1.7 var(--sans);}
+.co strong{font-weight:500;}
+.cg{border-color:var(--grn-l);background:rgba(35,63,47,.08);color:rgba(232,226,216,.6);}
+.cy{border-color:var(--gold);background:var(--gold-d);color:var(--gold-l);}
+.cr{border-color:var(--red);background:var(--red-bg);color:rgba(207,85,78,.75);}
+
+/* STRATEGY CARDS */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.sc{background:rgba(255,255,255,.018);border:1px solid rgba(255,255,255,.04);padding:20px 18px;}
+.sh{font:400 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);opacity:.55;margin-bottom:9px;}
+.sk{font:300 clamp(15px,1.5vw,20px)/1.2 var(--serif);font-style:italic;color:var(--cream);margin-bottom:7px;}
+.sb{font:300 12.5px/1.7 var(--sans);color:var(--mist);}
+
+/* INSIGHT ROW */
+.ir{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;}
+.ic{background:rgba(255,255,255,.018);border:1px solid rgba(255,255,255,.04);padding:16px 18px;}
+.ih{font:400 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.45;margin-bottom:9px;}
+.iv{font:300 13px/1.65 var(--sans);color:var(--cream);}
+.iv strong{font-weight:500;color:#fff;}
+
+/* JOURNEY */
+.jrow{display:grid;grid-template-columns:20px 1fr 1fr 1fr 20px;align-items:center;gap:0;padding:0 48px;}
+.jarr{text-align:center;font:300 14px/1 var(--sans);color:rgba(255,255,255,.12);}
+.jstep{padding:20px 24px;position:relative;}
+.jstep-num{font:500 11px/1 var(--sans);letter-spacing:.12em;color:var(--gold);opacity:.5;margin-bottom:7px;}
+.jstep-name{font:300 clamp(20px,2.2vw,28px)/1.15 var(--serif);color:var(--cream);margin-bottom:5px;}
+.jstep-sub{font:300 12px/1.45 var(--sans);color:var(--mist);letter-spacing:.02em;}
+.j1{background:var(--grn-bg);border:1px solid var(--grn-bd);}
+.j2{background:var(--gold-d);border:1px solid var(--gold-bd);}
+.jshared{background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.06);}
+
+/* DUAL JOURNEY */
+.dj{display:grid;grid-template-columns:140px 1fr 1fr 1fr;gap:0;align-items:stretch;}
+.dj-label{display:flex;align-items:center;padding:0 18px;font:400 10.5px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;}
+.dj-label.l1{color:var(--cream);background:rgba(35,63,47,.15);border:1px solid var(--grn-bd);border-right:none;}
+.dj-label.l2{color:var(--gold);background:var(--gold-d);border:1px solid var(--gold-bd);border-right:none;}
+.dj-cell{padding:18px 20px;border:1px solid rgba(255,255,255,.04);border-left:none;}
+.dj-cell.dc1{background:var(--grn-bg);}
+.dj-cell.dc2{background:var(--gold-d);}
+.dj-cell.dcs{background:rgba(255,255,255,.012);}
+.dj-h{font:300 14px/1.3 var(--serif);font-style:italic;color:var(--cream);margin-bottom:5px;}
+.dj-b{font:300 12px/1.65 var(--sans);color:var(--mist);}
+.dj-shared{font:300 10px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--mist);opacity:.5;margin-bottom:5px;}
+
+/* STEP HEADER */
+.step-hdr{display:grid;grid-template-columns:140px 1fr 1fr 1fr;gap:0;}
+.step-col{padding:10px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,.06);}
+.step-n{font:500 11px/1 var(--sans);letter-spacing:.12em;color:var(--gold);opacity:.5;margin-bottom:5px;}
+.step-l{font:300 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--cream);opacity:.35;}
+
+/* INFOGRAPHIC (Slide 5) */
+.ig-wrap{flex:1;display:flex;flex-direction:column;padding:0 48px;overflow-y:auto;gap:6px;justify-content:center;}
+.ig-phase{font:400 10px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.4;padding:4px 0 2px;text-align:center;}
+.ig-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;}
+/* connector line behind circles */
+.ig-row::before{content:'';position:absolute;top:28px;left:calc(10% + 14px);right:calc(10% + 14px);height:1px;background:linear-gradient(90deg,var(--gold-bd),rgba(255,255,255,.06),var(--gold-bd));}
+.ig-card{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 8px;position:relative;z-index:1;}
+/* circle */
+.ig-circle{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:10px;transition:all .3s;}
+.ig-circle span{font:500 16px/1 var(--sans);letter-spacing:.04em;}
+.ig-circle.cp{border:1.5px solid var(--gold);background:rgba(196,162,101,.08);}
+.ig-circle.cp span{color:var(--gold);}
+.ig-circle.cs{border:1.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.02);}
+.ig-circle.cs span{color:var(--mist);}
+/* text */
+.ig-name{font:300 14px/1.25 var(--serif);font-style:italic;color:var(--cream);margin-bottom:5px;}
+.ig-desc{font:300 11px/1.55 var(--sans);color:var(--mist);max-width:200px;margin:0 auto;}
+.ig-tag{display:inline-block;font:400 7.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:2px;margin-top:7px;}
+.ig-tag.tp{color:var(--gold);border:1px solid var(--gold-bd);background:var(--gold-d);}
+.ig-tag.tc{color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.015);}
+/* arrow between rows */
+.ig-arrow{display:flex;align-items:center;justify-content:center;padding:2px 0;color:var(--gold);opacity:.2;font-size:18px;letter-spacing:6px;}
+/* legend */
+.ig-legend{display:flex;gap:16px;justify-content:flex-end;align-items:center;padding:4px 0;}
+.ig-legend-item{display:flex;align-items:center;gap:6px;font:300 10px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;}
+.ig-legend-dot{width:8px;height:8px;border-radius:50%;}
+.ig-legend-dot.lp{border:1.5px solid var(--gold);background:rgba(196,162,101,.15);}
+.ig-legend-dot.lc{border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03);}
+
+@media(max-width:900px){
+  .sp{grid-template-columns:1fr;overflow-y:auto;}
+  .pn{padding:20px 18px;}
+  .hd,.ft{padding-left:18px;padding-right:18px;}
+  .sg,.ir{grid-template-columns:1fr;}
+  .mr{grid-template-columns:1fr;}
+  .dj{grid-template-columns:80px 1fr 1fr 1fr;}
+  .jrow{grid-template-columns:12px 1fr 1fr 1fr 12px;padding:0 18px;}
+  .step-hdr{grid-template-columns:80px 1fr 1fr 1fr;}
+  .ig-wrap{padding:8px 18px 0;}
+  .ig-row{grid-template-columns:repeat(5,1fr);gap:0;}
+  .ig-circle{width:40px;height:40px;}
+  .ig-circle span{font-size:13px;}
+  .ig-name{font-size:11px;}
+  .ig-desc{font-size:9px;max-width:120px;}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ════════════════════════════════════════
+     SLIDE 1 — OVERVIEW
+════════════════════════════════════════ -->
+<div class="slide active" id="s1">
+  <div class="hd">
+    <div>
+      <div class="ey">Meta Ads · Campaign Summary</div>
+      <h1 style="font:300 clamp(44px,6vw,72px)/.95 var(--serif);color:var(--cream);letter-spacing:-.02em;">Tri Vananda</h1>
+      <h2 class="st" style="font-size:clamp(36px,5vw,60px);"><em>C1 &amp; C2 At a Glance</em></h2>
+    </div>
+    <div style="display:flex;gap:6px;">
+      <span class="bg bg1">C1 · Green</span>
+      <span class="bg bg2">C2 · Gold</span>
+    </div>
+  </div>
+
+  <div style="flex:1;padding:20px 48px 0;display:flex;flex-direction:column;gap:12px;overflow-y:auto;">
+    <!-- Budget -->
+    <div style="display:flex;gap:32px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+      <div><div class="ml" style="margin-bottom:4px;">Budget / campaign</div><div style="font:400 15px/1 var(--sans);color:var(--cream);">THB 50,000</div></div>
+      <div><div class="ml" style="margin-bottom:4px;">Duration</div><div style="font:400 15px/1 var(--sans);color:var(--cream);">30 days</div></div>
+      <div><div class="ml" style="margin-bottom:4px;">Total</div><div style="font:400 15px/1 var(--sans);color:var(--cream);">THB 100,000</div></div>
+      <div><div class="ml" style="margin-bottom:4px;">Channels</div><div style="font:400 15px/1 var(--sans);color:var(--cream);">Meta (IG + FB)</div></div>
+      <div><div class="ml" style="margin-bottom:4px;">Shared funnel</div><div style="font:400 15px/1 var(--sans);color:var(--cream);">Ad → Landing Page → WhatsApp → Visit</div></div>
+    </div>
+
+    <!-- Strategy -->
+    <div class="sg">
+      <div class="sc">
+        <div class="sh">Principle 01</div>
+        <div class="sk">Quality over reach</div>
+        <div class="sb">One qualified site visit outweighs 10,000 impressions. We optimise for conversation quality, not volume. Luxury media: fewer, better placements.</div>
+      </div>
+      <div class="sc">
+        <div class="sh">Principle 02</div>
+        <div class="sk">Context is brand</div>
+        <div class="sb">Targeting is psychographic, not demographic. Wellness-literate, design-conscious, internationally mobile. Where the ad appears tells the audience who we are.</div>
+      </div>
+      <div class="sc">
+        <div class="sh">Principle 03</div>
+        <div class="sk">Two engines, one world</div>
+        <div class="sb">C1 runs the prestige engine — slow-burn desire for international HNW. C2 runs the community engine — proximity impulse for local partners. Same brand, different psychology.</div>
+      </div>
+    </div>
+
+    <!-- Two campaigns -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+      <div class="ic" style="border-color:var(--grn-bd);background:rgba(35,63,47,.06);">
+        <div class="ih" style="color:var(--cream);opacity:.35;">C1 · Green · Slow Burn</div>
+        <div style="font:300 clamp(16px,1.8vw,22px)/1.2 var(--serif);color:var(--cream);margin-bottom:6px;">Business Tycoon with Family</div>
+        <div class="iv" style="color:var(--mist);font-size:12px;">International HNW · High-consideration · Weeks to months</div>
+      </div>
+      <div class="ic" style="border-color:var(--gold-bd);background:var(--gold-d);">
+        <div class="ih" style="color:var(--gold);">C2 · Gold · Fast Impulse</div>
+        <div style="font:300 clamp(16px,1.8vw,22px)/1.2 var(--serif);color:var(--cream);margin-bottom:6px;">Impulse Buyer + Thailand Partners</div>
+        <div class="iv" style="color:var(--mist);font-size:12px;">Phuket / Bangkok · Proximity-driven · Days not months</div>
+      </div>
+    </div>
+
+    <!-- Bottom insights -->
+    <div class="ir">
+      <div class="ic">
+        <div class="ih">Luxury Attribution</div>
+        <div class="iv">Weight the <strong>awareness creator</strong> and <strong>conversion closer</strong> equally. The landing page that plants desire matters as much as the WhatsApp that closes.</div>
+      </div>
+      <div class="ic">
+        <div class="ih">HNWI Purchase Psychology</div>
+        <div class="iv">Awareness → Desire → Fantasy → <strong>Permission</strong> → Purchase. Create permission by affirming identity and framing self-investment as intelligent.</div>
+      </div>
+      <div class="ic">
+        <div class="ih">Brand Safety</div>
+        <div class="iv">No programmatic open exchange. Custom audiences + LAL only. Frequency capped. Every impression in the context of wellness, design, and intentional living.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SLIDE 2 — TARGETING
+════════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <div class="hd">
+    <div class="st">Targeting <em>Strategy</em></div>
+    <div style="display:flex;gap:6px;">
+      <span class="bg bg1">C1 · International HNW</span>
+      <span class="bg bg2">C2 · Local Impulse</span>
+    </div>
+  </div>
+
+  <div class="sp">
+    <div class="pn p1">
+      <div style="margin-bottom:12px;">
+        <div class="ey">Campaign 1 · Green</div>
+        <div class="pt">Business Tycoon with Family</div>
+        <div class="ps">International HNW · High-consideration · Weeks to months</div>
+      </div>
+      <table class="tb">
+        <tr><td>Who</td><td>Age 35+, residents of <strong>HK · Singapore · Bangkok · Shanghai · Sydney · Melbourne</strong></td></tr>
+        <tr><td>Psychographic</td><td>Connoisseur / Achiever archetype. Globally mobile, seeking <strong>legacy and longevity</strong>. Researches thoroughly, shares with family before committing.</td></tr>
+        <tr><td>Buyer logic</td><td>Needs <strong>full context</strong> before conversation. The landing page is the campaign — LP quality determines budget efficiency.</td></tr>
+        <tr><td>Targeting</td><td><span class="tg g1">Wellness</span><span class="tg g1">Luxury real estate</span><span class="tg g1">Intl. travellers</span><span class="tg g1">Family & wealth</span><br>1% LAL from best leads</td></tr>
+        <tr><td>Optimisation</td><td>Day 7: 50+ Lead events → switch <strong>Conversions → Lead</strong>.<br>Week 2: pause weak creatives → scale top 2 by cost-per-conversation.</td></tr>
+        <tr><td>Personalised</td><td><strong>Ad creative</strong> (family narrative) · <strong>Landing page</strong> (C1) · <strong>Editorial</strong> (C1 angle)</td></tr>
+      </table>
+    </div>
+
+    <div class="pn p2">
+      <div style="margin-bottom:12px;">
+        <div class="ey" style="color:var(--gold-l);">Campaign 2 · Gold</div>
+        <div class="pt">Impulse Buyer + Thailand Partners</div>
+        <div class="ps">Phuket / Bangkok · Proximity-driven · Days not months</div>
+      </div>
+      <table class="tb">
+        <tr><td>Who</td><td>Age 28–50, residents of <strong>Phuket · Phang Nga · Bangkok (Sukhumvit, Sathorn)</strong></td></tr>
+        <tr><td>Psychographic</td><td>Achiever / Experientialist archetype. Recently successful. <strong>Partner is the real decision maker</strong> — seeking a better place to live. Create the world she desires.</td></tr>
+        <tr><td>Buyer logic</td><td>Sees it, feels it, <strong>messages immediately</strong>. Extra steps kill the impulse. Zero friction from desire to conversation.</td></tr>
+        <tr><td>Targeting</td><td><span class="tg g2">Expats</span><span class="tg g2">Luxury goods</span><span class="tg g2">Fine dining</span><span class="tg g2">Couples & newlyweds</span><br>2–3% LAL from agent CRM</td></tr>
+        <tr><td>Dayparting</td><td>Ads run <strong>Thu 14:00 – Mon 23:00</strong> only — peak impulse window, cuts ~30% wasted spend.</td></tr>
+        <tr><td>Personalised</td><td><strong>Ad creative</strong> (lifestyle narrative) · <strong>Landing page</strong> (C2) · <strong>Editorial</strong> (C2 angle)</td></tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SLIDE 3 — EXPECTED OUTCOMES
+════════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <div class="hd">
+    <div class="st">Expected <em>Outcomes</em> &amp; Launch Requirements</div>
+    <div style="display:flex;gap:6px;">
+      <span class="bg bg1">C1 · 1–2 Walk-ins</span>
+      <span class="bg bg2">C2 · 1–3 Walk-ins</span>
+    </div>
+  </div>
+
+  <div class="sp">
+    <div class="pn p1">
+      <div style="margin-bottom:6px;">
+        <div class="ey">C1 · 30-day forecast · THB 50,000</div>
+        <div class="pt">Landing Page → WhatsApp</div>
+        <div class="ps">Traffic objective → Landing Page Views · International HNW</div>
+      </div>
+      <div class="mr">
+        <div class="mx"><div class="mv c1">2,000–3,300</div><div class="ml">Landing page visitors</div></div>
+        <div class="mx"><div class="mv c1">100–165</div><div class="ml">WhatsApp conversations</div></div>
+      </div>
+      <div class="mr">
+        <div class="mx"><div class="mv c1">THB 15–25</div><div class="ml">Cost per click (intl.)</div></div>
+        <div class="mx"><div class="mv c1">1–2</div><div class="ml">Qualified site visits</div></div>
+      </div>
+      <table class="tb" style="margin-top:8px;">
+        <tr><td>Success metric</td><td>WA click rate on LP <strong>> 5%</strong> of page visitors</td></tr>
+        <tr><td>Pre-launch</td><td><strong>Pixel installed</strong> (PageView + Lead + ViewContent) · LP mobile-optimised · Custom audiences uploaded · UTM tracking live</td></tr>
+        <tr><td>Optimisation</td><td>Week 2: pause weak creatives → budget to top 2 by cost-per-conversation</td></tr>
+        <tr><td>Brand KPIs</td><td>Track <strong>saves + shares</strong> (desire signals) not just clicks. Monitor <strong>enquiry quality</strong> — one serious buyer > 100 clicks.</td></tr>
+      </table>
+      <div class="co cg" style="margin-top:auto;">
+        <strong>Luxury benchmark:</strong> For HNWI real estate, 0.03–0.08% of impressions converting to qualified enquiry is strong. Treat each C1 enquiry as a major account.
+      </div>
+    </div>
+
+    <div class="pn p2">
+      <div style="margin-bottom:6px;">
+        <div class="ey" style="color:var(--gold-l);">C2 · 30-day forecast · THB 50,000</div>
+        <div class="pt">Landing Page → Direct WhatsApp</div>
+        <div class="ps">Leads objective → Highest Volume · Phuket / Bangkok</div>
+      </div>
+      <div class="mr">
+        <div class="mx"><div class="mv c2">2,700–5,000</div><div class="ml">Ad clicks delivered</div></div>
+        <div class="mx"><div class="mv c2">1,600–3,500</div><div class="ml">WhatsApp conversations</div></div>
+      </div>
+      <div class="mr">
+        <div class="mx"><div class="mv c2">Thu–Mon</div><div class="ml">Peak daypart window</div></div>
+        <div class="mx"><div class="mv c2">1–3</div><div class="ml">Qualified site visits</div></div>
+      </div>
+      <table class="tb" style="margin-top:8px;">
+        <tr><td>Success metric</td><td>Conversation-to-visit rate <strong>> 0.1%</strong> of WA opens</td></tr>
+        <tr><td>Pre-launch</td><td><strong>Dedicated WA responder</strong> Thu–Mon · Sub-15-min SLA · Response script written · Exclusion list uploaded</td></tr>
+        <tr><td>Day 3–5 check</td><td>If <40% clicks → WA open: review pre-fill text or creative. <strong>Optimised on the phone, not in Ads Manager.</strong></td></tr>
+        <tr><td>Brand KPIs</td><td>Track <strong>response speed</strong> (median first-reply time). Monitor <strong>WA-to-visit conversion</strong> — booked visits, not opens.</td></tr>
+      </table>
+      <div class="co cy" style="margin-top:auto;">
+        <strong>Impulse benchmark:</strong> 0.1–0.3% conversation-to-visit is target. Book visit within 24 hours — every day without a date is a cooling impulse. Speed is the product.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SLIDE 4 — CUSTOMER JOURNEY
+════════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <div class="hd">
+    <div>
+      <div class="ey">Customer Journey · Shared Across Both Campaigns</div>
+      <div class="st">Same journey. <em>Different story.</em></div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div style="display:flex;gap:6px;">
+        <span class="bg bg1">C1 · Green</span>
+        <span class="bg bg2">C2 · Gold</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:1;padding:16px 48px 0;display:flex;flex-direction:column;gap:12px;overflow-y:auto;">
+
+    <!-- Funnel steps -->
+    <div class="jrow">
+      <div></div>
+      <div class="jstep jshared" style="text-align:center;">
+        <div class="jstep-num">Step 1</div>
+        <div class="jstep-name">Meta Ad</div>
+        <div class="jstep-sub">First impression · awareness</div>
+      </div>
+      <div class="jstep jshared" style="text-align:center;">
+        <div class="jstep-num">Step 2</div>
+        <div class="jstep-name">Landing Page</div>
+        <div class="jstep-sub">Desire building · deepening</div>
+      </div>
+      <div class="jstep jshared" style="text-align:center;">
+        <div class="jstep-num">Step 3</div>
+        <div class="jstep-name">WhatsApp</div>
+        <div class="jstep-sub">Conversion · visit booking</div>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- Divider -->
+    <div style="text-align:center;font:300 10.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);padding:4px 0;">How each campaign tells the story differently</div>
+
+    <!-- C1 Row -->
+    <div class="dj">
+      <div class="dj-label l1">C1 · Green<br><span style="font-weight:300;font-size:9px;letter-spacing:.1em;opacity:.5;margin-top:4px;display:block;">Slow Burn</span></div>
+      <div class="dj-cell dc1">
+        <div class="dj-h">Family narrative</div>
+        <div class="dj-b">Multigenerational imagery. Forest, children, togetherness. Speaks to the family patriarch seeking legacy and belonging. High-context, editorial tone.</div>
+      </div>
+      <div class="dj-cell dc1">
+        <div class="dj-h">Full context before commitment</div>
+        <div class="dj-b">Long-form LP with editorial depth. Founder's Note, Coherence Map, villa details. Built for someone who researches and shares with family before deciding.</div>
+      </div>
+      <div class="dj-cell dc1">
+        <div class="dj-h">Considered conversation</div>
+        <div class="dj-b">WhatsApp CTA on LP after content consumption. The prospect arrives informed and ready. Treat as major account — full concierge response.</div>
+      </div>
+    </div>
+
+    <!-- C2 Row -->
+    <div class="dj">
+      <div class="dj-label l2">C2 · Gold<br><span style="font-weight:300;font-size:9px;letter-spacing:.1em;opacity:.5;margin-top:4px;display:block;">Fast Impulse</span></div>
+      <div class="dj-cell dc2">
+        <div class="dj-h">Lifestyle desire</div>
+        <div class="dj-b">Aspirational lifestyle imagery. Wellness, design, the life she wants. Speaks to the partner — create the world she desires without explaining the product.</div>
+      </div>
+      <div class="dj-cell dc2">
+        <div class="dj-h">Emotional, not informational</div>
+        <div class="dj-b">Dark cinematic LP. Sensory copy, rhythm-of-life grid, gold accents. Built for impulse — feel first, think later. WA CTA prominent throughout.</div>
+      </div>
+      <div class="dj-cell dc2">
+        <div class="dj-h">Speed is the product</div>
+        <div class="dj-b">Pre-filled WhatsApp message. Response under 15 minutes. Book the visit within 24 hours. Every hour of delay is a cooling impulse.</div>
+      </div>
+    </div>
+
+    <!-- Shared content note -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;">
+      <div class="ic">
+        <div class="ih">What's personalised</div>
+        <div class="iv"><strong>Ad creative</strong> — different imagery and narrative per segment<br><strong>Landing page</strong> — C1 and C2 versions with different tone, structure, palette<br><strong>Editorial</strong> — C1 and C2 angles on the Tri Vananda story</div>
+      </div>
+      <div class="ic">
+        <div class="ih">What's shared</div>
+        <div class="iv"><strong>Founder's Memo</strong> — same story, universal trust<br><strong>Coherence Map</strong> — same framework, same logic<br><strong>Post-visit journey</strong> — briefing, experience, memory folio, villa kit</div>
+      </div>
+      <div class="ic">
+        <div class="ih">Luxury social hierarchy</div>
+        <div class="iv"><strong>Tier 1</strong> IG/FB: editorial brand world (70%)<br><strong>Tier 2</strong> Video: brand films, craft stories (20%)<br><strong>Tier 3</strong> WhatsApp: private, personal conversion (10%)</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SLIDE 5 — FULL CUSTOMER JOURNEY INFOGRAPHIC
+════════════════════════════════════════ -->
+<div class="slide" id="s5">
+  <div class="hd">
+    <div>
+      <div class="ey">Full Customer Journey · 10 Collateral Pieces</div>
+      <div class="st">One path. <em>Ten touchpoints.</em></div>
+    </div>
+    <div class="ig-legend">
+      <div class="ig-legend-item"><div class="ig-legend-dot lp"></div><span style="color:var(--gold);">Personalised</span></div>
+      <div class="ig-legend-item"><div class="ig-legend-dot lc"></div><span style="color:var(--mist);">Shared</span></div>
+    </div>
+  </div>
+
+  <div class="ig-wrap">
+
+    <!-- PHASE 1: Pre-visit -->
+    <div class="ig-phase">Pre-visit · Awareness → Desire</div>
+    <div class="ig-row">
+      <div class="ig-card">
+        <div class="ig-circle cp"><span>01</span></div>
+        <div class="ig-name">Meta Ad</div>
+        <div class="ig-desc">First impression. C1: family narrative. C2: lifestyle desire. The ad sets the emotional frame.</div>
+        <div class="ig-tag tp">Personalised</div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-circle cp"><span>02</span></div>
+        <div class="ig-name">Landing Page</div>
+        <div class="ig-desc">The campaign lives here. C1: editorial depth. C2: dark cinematic impulse. WhatsApp CTA throughout.</div>
+        <div class="ig-tag tp">Personalised</div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-circle cp"><span>03</span></div>
+        <div class="ig-name">Editorial Article</div>
+        <div class="ig-desc">Long-form storytelling. C1: legacy and family. C2: "The Decision That Made Itself."</div>
+        <div class="ig-tag tp">Personalised</div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-circle cs"><span>04</span></div>
+        <div class="ig-name">Founder's Memo</div>
+        <div class="ig-desc">A personal letter from the founder. Trust and authenticity. A considered project, not a development.</div>
+        <div class="ig-tag tc">Shared</div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-circle cs"><span>05</span></div>
+        <div class="ig-name">Coherence Map</div>
+        <div class="ig-desc">The intellectual framework. How wellness, nature, community, and design connect. Feeling into logic.</div>
+        <div class="ig-tag tc">Shared</div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="ig-arrow">↓</div>
+
+    <!-- PHASE 2: Conversion → Post-visit -->
+    <div class="ig-phase">Conversion → Post-visit</div>
+    <div class="ig-row">
+      <div class="ig-card">
+        <div class="ig-circle cp"><span>06</span></div>
+        <div class="ig-name">WhatsApp</div>
+        <div class="ig-desc">The conversion moment. Pre-filled message. C1: concierge tone. C2: respond under 15 minutes.</div>
+        <div class="ig-tag tp">Personalised</div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-circle cs"><span>07</span></div>
+        <div class="ig-name">Briefing Card</div>
+        <div class="ig-desc">Sent before the visit. Prepares the prospect. Sets expectations, removes uncertainty.</div>
+        <div class="ig-tag tc">Shared</div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-circle cs"><span>08</span></div>
+        <div class="ig-name">Site Visit</div>
+        <div class="ig-desc">The property speaks for itself. Nature, wellness, residences. Feeling becomes conviction.</div>
+        <div class="ig-tag tc">Shared</div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-circle cs"><span>09</span></div>
+        <div class="ig-name">Villa Sales Kit</div>
+        <div class="ig-desc">Collections, floor plans, specifications. The rational confirmation of an emotional decision.</div>
+        <div class="ig-tag tc">Shared</div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-circle cp"><span>10</span></div>
+        <div class="ig-name">Follow-up Folio</div>
+        <div class="ig-desc">Post-visit communication. Personalised recap. Keeps the feeling alive while the decision develops.</div>
+        <div class="ig-tag tp">Personalised</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</div><!-- /deck -->
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nb" onclick="cs(-1)">← Prev</button>
+  <div class="nd" id="nd"></div>
+  <span class="nc" id="nc">1 / 5</span>
+  <button class="nb" onclick="cs(1)">Next →</button>
+</div>
+<script>
+const S=document.querySelectorAll('.slide'),T=S.length;let C=0;
+const D=document.getElementById('nd'),N=document.getElementById('nc');
+S.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' on':'');d.onclick=()=>go(i);D.appendChild(d);});
+function go(n){S[C].classList.remove('active');D.children[C].classList.remove('on');C=Math.max(0,Math.min(n,T-1));S[C].classList.add('active');D.children[C].classList.add('on');N.textContent=(C+1)+' / '+T;}
+function cs(d){go(C+d);}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowDown')cs(1);if(e.key==='ArrowLeft'||e.key==='ArrowUp')cs(-1);});
+let tx=0;document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;});
+document.addEventListener('touchend',e=>{const d=tx-e.changedTouches[0].clientX;if(Math.abs(d)>50)cs(d>0?1:-1);});
+</script>
+</body>
+</html>

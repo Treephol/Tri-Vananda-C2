@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tri Vananda — A Life Worth Living</title>
+<title>Tri Vananda — An Address in the Quiet Northeast of Phuket</title>
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="shortcut icon" type="image/jpeg" href="logo.jpg">
+<link rel="apple-touch-icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -17,6 +20,9 @@
   --gold:     #c4a265;
   --gold-dim: rgba(196,162,101,.18);
   --gold-soft:rgba(196,162,101,.45);
+  --tv-green: #233f2f;
+  --tv-terra: #CF554E;
+  --tv-earth: #BAB9AF;
   --serif:    'Cormorant Garamond', Georgia, serif;
   --sans:     'Jost', 'Helvetica Neue', sans-serif;
 }
@@ -72,7 +78,7 @@ nav.scrolled {
 }
 .hero-bg {
   position:absolute; inset:0;
-  background:url('sunset.jpg') center 35%/cover no-repeat;
+  background:url('sunset.jpg') center 40%/cover no-repeat;
   animation:heroZoom 22s ease-out forwards;
 }
 @keyframes heroZoom { from{transform:scale(1.06)} to{transform:scale(1)} }
@@ -86,27 +92,27 @@ nav.scrolled {
     rgba(14,12,10,.35) 100%
   );
 }
-.hero-content { position:relative; z-index:2; max-width:680px; }
+.hero-content { position:relative; z-index:2; max-width:720px; }
 .hero-eyebrow {
   font-family:var(--sans); font-size:10px; font-weight:300;
   letter-spacing:0.4em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:28px; opacity:.7;
+  color:var(--tv-terra); margin-bottom:28px; opacity:.85;
 }
 .hero-h1 {
-  font-family:var(--serif); font-size:clamp(38px,7vw,78px);
-  font-weight:300; font-style:italic; line-height:1.08;
-  letter-spacing:-0.02em; color:var(--cream); margin-bottom:20px;
+  font-family:var(--serif); font-size:clamp(36px,6.8vw,72px);
+  font-weight:300; font-style:italic; line-height:1.06;
+  letter-spacing:-0.018em; color:var(--cream); margin-bottom:26px;
 }
 .hero-sub {
-  font-family:var(--serif); font-size:19px; font-weight:300;
+  font-family:var(--serif); font-size:18px; font-weight:300;
   font-style:italic; color:var(--mist); letter-spacing:.02em;
-  line-height:1.6; max-width:480px; margin-bottom:48px;
+  line-height:1.65; max-width:520px; margin-bottom:48px;
 }
 .hero-line { width:40px; height:1px; background:var(--gold-soft); margin-bottom:20px; }
 .hero-meta {
   font-family:var(--sans); font-size:10px; font-weight:300;
   letter-spacing:0.28em; text-transform:uppercase;
-  color:rgba(232,226,216,.25);
+  color:rgba(232,226,216,.35);
 }
 
 /* ── SECTION BASE ── */
@@ -116,35 +122,178 @@ nav.scrolled {
 .sec-mid { background:var(--ink-mid); }
 .label {
   font-family:var(--sans); font-size:10px; font-weight:300;
-  letter-spacing:0.38em; text-transform:uppercase;
-  color:var(--gold); opacity:.6; margin-bottom:32px;
+  letter-spacing:0.34em; text-transform:uppercase;
+  color:var(--gold); opacity:.6; margin-bottom:28px;
 }
-.gold-rule { width:32px; height:1px; background:var(--gold-dim); margin:24px 0; }
+.gold-rule { width:32px; height:1px; background:var(--tv-green); opacity:.6; margin:24px 0; }
+
+/* ── THE INVITATION ── */
+#invitation {
+  background:var(--ink);
+  padding:140px 52px 130px;
+  text-align:center;
+  border-top:1px solid var(--gold-dim);
+}
+.invitation-head { max-width:680px; margin:0 auto 72px; }
+.invitation-rule {
+  width:40px; height:1px; background:var(--gold);
+  opacity:.45; margin:0 auto 32px;
+}
+.invitation-h {
+  font-family:var(--serif); font-style:italic; font-weight:300;
+  font-size:clamp(30px, 4vw, 50px); line-height:1.2;
+  color:var(--cream); letter-spacing:-0.015em;
+  margin-bottom:32px;
+}
+.invitation-body {
+  font-family:var(--serif); font-weight:300;
+  font-size:18px; line-height:1.78;
+  color:var(--mist);
+  max-width:640px; margin:0 auto;
+}
+.invitation-showcase {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:6px; max-width:1440px; margin:0 auto;
+}
+.inv-card {
+  position:relative; overflow:hidden;
+  aspect-ratio: 3/4;
+  background-size:cover; background-position:center;
+}
+.inv-card::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(14,12,10,.72) 0%, rgba(14,12,10,.1) 55%, transparent 100%);
+}
+.inv-card-cap {
+  position:absolute; left:28px; bottom:26px; z-index:1;
+  font-family:var(--sans); font-size:10px; font-weight:300;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:rgba(232,226,216,.78);
+}
+@media (max-width:768px) {
+  #invitation { padding:90px 24px; }
+  .invitation-body { font-size:16px; line-height:1.85; }
+  .invitation-showcase { grid-template-columns:1fr; gap:4px; }
+  .inv-card { aspect-ratio: 4/3; }
+}
+
+/* ── ABOUT ── */
+#about { padding:0; }
+.about-grid { display:grid; grid-template-columns:5fr 4fr; min-height:78vh; }
+.about-img {
+  background:url('hero.jpg') center/cover no-repeat;
+  position:relative;
+}
+.about-img::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to right, transparent 60%, var(--ink-soft) 100%);
+}
+.about-text {
+  background:var(--ink-soft);
+  display:flex; flex-direction:column; justify-content:center;
+  padding:90px 80px;
+}
+.about-h {
+  font-family:var(--serif); font-size:clamp(30px,4vw,50px);
+  font-weight:300; font-style:italic; line-height:1.2;
+  color:var(--cream); margin-bottom:32px; letter-spacing:-0.015em;
+}
+.about-body {
+  font-family:var(--serif); font-size:18px; font-weight:300;
+  line-height:1.78; color:var(--mist); max-width:520px;
+}
 
 /* ── THE FEELING ── */
 #feeling { padding:0; }
 .feeling-grid { display:grid; grid-template-columns:1fr 1fr; min-height:80vh; }
 .feeling-img {
   background:url('couple.jpg') center/cover no-repeat;
-  position:relative;
+  position:relative; order:2;
 }
 .feeling-img::after {
   content:''; position:absolute; inset:0;
-  background:linear-gradient(to right, transparent 60%, var(--ink-soft) 100%);
+  background:linear-gradient(to left, transparent 60%, var(--ink) 100%);
 }
 .feeling-text {
-  background:var(--ink-soft);
+  background:var(--ink);
   display:flex; flex-direction:column; justify-content:center;
-  padding:80px 72px;
+  padding:80px 80px;
+  order:1;
 }
 .feeling-h {
-  font-family:var(--serif); font-size:clamp(28px,3.4vw,46px);
-  font-weight:300; font-style:italic; line-height:1.3;
-  color:var(--cream); margin-bottom:28px; letter-spacing:-0.01em;
+  font-family:var(--serif); font-size:clamp(24px,3vw,40px);
+  font-weight:300; font-style:italic; line-height:1.38;
+  color:var(--cream); margin-bottom:24px; letter-spacing:-0.01em;
 }
 .feeling-body {
   font-family:var(--serif); font-size:18px; font-weight:300;
-  line-height:1.85; color:var(--mist); max-width:420px;
+  line-height:1.78; color:var(--mist); max-width:520px;
+}
+
+/* ── NEWLYWED / LIFESTYLE BREAKS ── */
+.duet {
+  width:100%;
+  display:grid; grid-template-columns:1.25fr 1fr;
+  min-height:78vh;
+  background:var(--ink);
+  position:relative;
+}
+.duet-img {
+  background-size:cover; background-position:center;
+  position:relative;
+}
+.duet-img::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to right, rgba(14,12,10,.35) 0%, rgba(14,12,10,.78) 100%);
+}
+.duet-copy {
+  position:relative;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:88px 72px;
+  background:linear-gradient(to bottom, var(--ink) 0%, var(--ink-soft) 100%);
+}
+.duet-eye {
+  font-family:var(--sans); font-size:10px; font-weight:300;
+  letter-spacing:.36em; text-transform:uppercase;
+  color:var(--gold); opacity:.6; margin-bottom:28px;
+}
+.duet-h {
+  font-family:var(--serif); font-size:clamp(28px,3.3vw,46px);
+  font-weight:300; font-style:italic; line-height:1.22;
+  color:var(--cream); margin-bottom:24px; letter-spacing:-0.01em;
+}
+.duet-body {
+  font-family:var(--serif); font-size:18px; font-weight:300;
+  line-height:1.82; color:var(--mist); max-width:440px;
+}
+.duet-rule { width:32px; height:1px; background:var(--gold-dim); margin:22px 0; }
+
+.strip {
+  width:100%;
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:2px;
+  background:var(--ink);
+}
+.strip-cell {
+  position:relative;
+  min-height:56vh;
+  background-size:cover; background-position:center;
+  overflow:hidden;
+}
+.strip-cell::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(14,12,10,.7) 0%, rgba(14,12,10,.1) 55%);
+}
+.strip-cap {
+  position:absolute; bottom:28px; left:28px; right:28px; z-index:1;
+  font-family:var(--serif); font-size:17px; font-style:italic;
+  font-weight:300; color:var(--cream);
+  letter-spacing:.01em; line-height:1.4;
+}
+.strip-cap small {
+  display:block; font-family:var(--sans); font-size:9px; font-weight:300;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:var(--gold-soft); margin-top:10px;
 }
 
 /* ── ATMOSPHERIC BREAK ── */
@@ -161,80 +310,86 @@ nav.scrolled {
   position:absolute; inset:0;
   background:radial-gradient(ellipse at center, rgba(14,12,10,.45) 0%, rgba(14,12,10,.82) 100%);
 }
-.atm-content { position:relative; z-index:1; text-align:center; max-width:600px; padding:0 32px; }
+.atm-content { position:relative; z-index:1; text-align:center; max-width:640px; padding:0 32px; }
 .atm-quote {
   font-family:var(--serif); font-size:clamp(24px,3.2vw,40px);
   font-weight:300; font-style:italic; color:var(--cream);
-  line-height:1.4; letter-spacing:-0.01em;
+  line-height:1.38; letter-spacing:-0.01em;
 }
 .atm-attr {
   font-family:var(--sans); font-size:10px; font-weight:300;
   letter-spacing:.3em; text-transform:uppercase;
-  color:var(--gold-soft); margin-top:20px;
+  color:var(--gold-soft); margin-top:22px;
 }
 
-/* ── THE PLACE (mosaic) ── */
-.mosaic { display:grid; grid-template-columns:repeat(12,1fr); grid-template-rows:auto; gap:4px; margin-top:52px; }
+/* ── THE PLACE ── */
+.place-text {
+  display:grid; grid-template-columns:1fr 1.2fr; gap:80px;
+  margin-top:48px; align-items:start;
+}
+.place-h {
+  font-family:var(--serif); font-size:clamp(30px,4vw,50px);
+  font-weight:300; font-style:italic; line-height:1.2;
+  color:var(--cream); letter-spacing:-0.015em;
+}
+.place-body {
+  font-family:var(--serif); font-size:18px; font-weight:300;
+  line-height:1.78; color:var(--mist);
+}
+.mosaic { display:grid; grid-template-columns:repeat(12,1fr); grid-template-rows:auto; gap:4px; margin-top:56px; }
 .mos-item {
-  position:relative; overflow:hidden; min-height:280px;
+  position:relative; overflow:hidden; min-height:300px;
   background-size:cover; background-position:center;
 }
 .mos-item::after {
   content:''; position:absolute; inset:0;
-  background:linear-gradient(to top, rgba(14,12,10,.6) 0%, transparent 50%);
+  background:linear-gradient(to top, rgba(14,12,10,.65) 0%, transparent 55%);
 }
-.mos-1 { grid-column:1/8; grid-row:1/2; min-height:420px; }
+.mos-1 { grid-column:1/8; grid-row:1/2; min-height:440px; }
 .mos-2 { grid-column:8/13; grid-row:1/2; }
 .mos-3 { grid-column:1/5; grid-row:2/3; }
-.mos-4 { grid-column:5/13; grid-row:2/3; min-height:360px; }
+.mos-4 { grid-column:5/13; grid-row:2/3; min-height:380px; }
+.mos-5 { grid-column:1/5; grid-row:3/4; min-height:300px; }
+.mos-6 { grid-column:5/9; grid-row:3/4; min-height:300px; }
+.mos-7 { grid-column:9/13; grid-row:3/4; min-height:300px; }
+.mos-8 { grid-column:1/6; grid-row:4/5; min-height:400px; }
+.mos-9 { grid-column:6/13; grid-row:4/5; min-height:400px; }
 .mos-cap {
   position:absolute; bottom:28px; left:28px; z-index:1;
   font-family:var(--sans); font-size:10px; font-weight:300;
-  letter-spacing:.24em; text-transform:uppercase;
-  color:rgba(232,226,216,.5);
-}
-.place-text {
-  display:grid; grid-template-columns:1fr 1fr; gap:80px;
-  margin-top:64px; align-items:start;
-}
-.place-h {
-  font-family:var(--serif); font-size:clamp(26px,3vw,42px);
-  font-weight:300; font-style:italic; line-height:1.3;
-  color:var(--cream);
-}
-.place-body {
-  font-family:var(--serif); font-size:17px; font-weight:300;
-  line-height:1.85; color:var(--mist);
+  letter-spacing:.26em; text-transform:uppercase;
+  color:rgba(232,226,216,.6);
 }
 
-/* ── THE LIFE (rhythm grid) ── */
-.life-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:52px; }
+/* ── THE LIFE (5-card timeline) ── */
+.life-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:2px; margin-top:52px; }
 .life-card {
-  position:relative; background:var(--ink-mid);
+  position:relative; background:var(--ink);
   padding:0; overflow:hidden;
+  border-top:1px solid var(--gold-dim);
 }
 .life-img {
-  width:100%; height:260px; object-fit:cover;
-  display:block; filter:brightness(.85);
+  width:100%; height:240px; object-fit:cover;
+  display:block; filter:brightness(.82);
 }
-.life-content { padding:36px 32px 44px; }
+.life-content { padding:32px 28px 40px; }
 .life-time {
   font-family:var(--sans); font-size:10px; font-weight:300;
-  letter-spacing:.36em; text-transform:uppercase;
-  color:var(--gold); opacity:.7; margin-bottom:16px;
+  letter-spacing:.34em; text-transform:uppercase;
+  color:var(--gold); opacity:.7; margin-bottom:14px;
 }
 .life-h {
-  font-family:var(--serif); font-size:22px; font-weight:300;
+  font-family:var(--serif); font-size:clamp(19px,1.8vw,24px); font-weight:300;
   font-style:italic; color:var(--cream); margin-bottom:14px;
-  line-height:1.35;
+  line-height:1.3; letter-spacing:-0.01em;
 }
 .life-body {
-  font-family:var(--serif); font-size:15px; font-weight:300;
-  line-height:1.8; color:var(--mist);
+  font-family:var(--serif); font-size:16px; font-weight:300;
+  line-height:1.78; color:var(--mist);
 }
 
 /* ── RESIDENCES ── */
-.res-split { display:grid; grid-template-columns:1fr 1fr; min-height:72vh; }
+.res-split { display:grid; grid-template-columns:1fr 1fr; min-height:74vh; }
 .res-img { background-size:cover; background-position:center; position:relative; }
 .res-img::after {
   content:''; position:absolute; inset:0;
@@ -242,20 +397,20 @@ nav.scrolled {
 }
 .res-text {
   display:flex; flex-direction:column; justify-content:center;
-  padding:80px 72px; background:var(--ink-soft);
+  padding:80px 80px; background:var(--ink-soft);
 }
 .res-name {
-  font-family:var(--serif); font-size:clamp(32px,4vw,52px);
+  font-family:var(--serif); font-size:clamp(34px,4vw,54px);
   font-weight:300; font-style:italic; color:var(--cream);
-  margin-bottom:20px; line-height:1.15;
+  margin-bottom:20px; line-height:1.1;
 }
 .res-body {
-  font-family:var(--serif); font-size:17px; font-weight:300;
-  line-height:1.85; color:var(--mist); max-width:400px; margin-bottom:28px;
+  font-family:var(--serif); font-size:18px; font-weight:300;
+  line-height:1.78; color:var(--mist); max-width:480px; margin-bottom:28px;
 }
 .res-detail {
   font-family:var(--sans); font-size:11px; font-weight:300;
-  letter-spacing:.18em; text-transform:uppercase;
+  letter-spacing:.2em; text-transform:uppercase;
   color:var(--gold-soft); line-height:2.2;
 }
 .res-reverse .res-img { order:2; }
@@ -264,146 +419,256 @@ nav.scrolled {
 }
 .res-reverse .res-text { order:1; }
 
-/* ── THREE PILLARS ── */
-.pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:52px; }
-.pillar {
-  background:var(--ink-mid); padding:52px 40px;
-  border-top:1px solid var(--gold-dim);
-  transition:background .3s;
+/* ── CRAFT / CUSTOMIZATION ── */
+#craft { padding:0; }
+.craft-grid { display:grid; grid-template-columns:4fr 5fr; min-height:72vh; }
+.craft-img {
+  background:url('villa-05.jpg') center/cover no-repeat;
+  position:relative;
 }
-.pillar:hover { background:rgba(46,43,39,.8); }
-.pillar-icon {
+.craft-img::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to right, transparent 50%, var(--ink-mid) 100%);
+}
+.craft-text {
+  background:var(--ink-mid);
+  display:flex; flex-direction:column; justify-content:center;
+  padding:90px 80px;
+}
+.craft-h {
+  font-family:var(--serif); font-size:clamp(30px,4vw,50px);
+  font-weight:300; font-style:italic; line-height:1.2;
+  color:var(--cream); margin-bottom:28px; letter-spacing:-0.015em;
+}
+.craft-body {
+  font-family:var(--serif); font-size:18px; font-weight:300;
+  line-height:1.78; color:var(--mist); max-width:520px;
+  margin-bottom:22px;
+}
+.craft-list {
+  list-style:none; margin-top:32px; max-width:520px;
+}
+.craft-list li {
+  font-family:var(--serif); font-size:17px; font-weight:300;
+  line-height:1.65; color:var(--cream);
+  padding:16px 0; border-bottom:1px solid var(--gold-dim);
+  display:flex; gap:20px; align-items:flex-start;
+  opacity:.85;
+}
+.craft-list li:first-child { border-top:1px solid var(--gold-dim); }
+.craft-list .cn {
   font-family:var(--sans); font-size:10px; font-weight:300;
-  letter-spacing:.34em; text-transform:uppercase;
-  color:var(--gold); opacity:.5; margin-bottom:24px;
-}
-.pillar-h {
-  font-family:var(--serif); font-size:26px; font-weight:300;
-  font-style:italic; color:var(--cream); margin-bottom:16px; line-height:1.3;
-}
-.pillar-body {
-  font-family:var(--serif); font-size:15px; font-weight:300;
-  line-height:1.85; color:var(--mist);
+  letter-spacing:.22em; color:var(--gold);
+  opacity:.7; padding-top:5px; min-width:22px;
 }
 
 /* ── WELLNESS CLP ── */
-.clp-layout { display:grid; grid-template-columns:5fr 4fr; gap:0; min-height:64vh; margin-top:52px; }
+.clp-layout { display:grid; grid-template-columns:5fr 4fr; gap:0; min-height:66vh; margin-top:52px; }
 .clp-img { background-size:cover; background-position:center; position:relative; }
 .clp-body-wrap {
   display:flex; flex-direction:column; justify-content:center;
-  padding:60px 64px; background:var(--ink-mid);
+  padding:64px 68px; background:var(--ink-mid);
 }
 .clp-h {
-  font-family:var(--serif); font-size:clamp(24px,2.8vw,36px);
+  font-family:var(--serif); font-size:clamp(26px,3.2vw,44px);
   font-weight:300; font-style:italic; color:var(--cream);
-  margin-bottom:20px; line-height:1.35;
+  margin-bottom:24px; line-height:1.22;
 }
 .clp-text {
-  font-family:var(--serif); font-size:16px; font-weight:300;
-  line-height:1.85; color:var(--mist);
-}
-
-/* ── DINING ── */
-.dining-feature {
-  display:grid; grid-template-columns:4fr 5fr; gap:0; min-height:56vh; margin-top:52px;
-}
-.dining-img { background-size:cover; background-position:center; }
-.dining-wrap {
-  display:flex; flex-direction:column; justify-content:center;
-  padding:60px 64px; background:var(--ink-soft);
-}
-.dining-h {
-  font-family:var(--serif); font-size:clamp(22px,2.6vw,34px);
-  font-weight:300; font-style:italic; color:var(--cream);
-  margin-bottom:18px; line-height:1.35;
-}
-.dining-text {
-  font-family:var(--serif); font-size:16px; font-weight:300;
-  line-height:1.85; color:var(--mist);
-}
-
-/* ── COMMUNITY ── */
-.comm-body-text {
   font-family:var(--serif); font-size:18px; font-weight:300;
-  line-height:1.85; color:var(--mist); max-width:520px;
-  margin:32px auto 0; text-align:center;
+  line-height:1.78; color:var(--mist);
 }
-.comm-imgs {
+.clp-row {
   display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
-  margin-top:48px;
+  margin-top:2px;
 }
-.comm-img-item {
-  min-height:260px; position:relative;
-  display:flex; align-items:center; justify-content:center;
-  border-top:1px solid var(--gold-dim);
+.clp-row-item {
+  min-height:280px; background-size:cover; background-position:center;
+  position:relative;
 }
-.comm-img-ph {
-  font-family:var(--sans); font-size:10px; font-weight:300;
-  letter-spacing:.2em; text-transform:uppercase;
-  color:var(--mist); opacity:.35; text-align:center; padding:20px;
+.clp-row-item::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(14,12,10,.5) 0%, transparent 55%);
 }
 
-/* ── FURTHER READING ── */
-.reading-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:52px; }
-.reading-card {
-  background:var(--ink-mid); padding:44px 36px;
-  text-decoration:none; display:block;
-  border-top:1px solid var(--gold-dim);
-  transition:background .3s;
+/* ── MONTARA PORTFOLIO (C1 structure · C2 theme) ── */
+.portfolio-section {
+  padding:120px 52px;
+  background:var(--ink-soft);
 }
-.reading-card:hover { background:rgba(46,43,39,.8); }
-.reading-type {
+.portfolio-header {
+  display:flex; justify-content:space-between; align-items:flex-end;
+  margin-bottom:56px; flex-wrap:wrap; gap:16px;
+  max-width:1240px; margin-left:auto; margin-right:auto;
+}
+.portfolio-header .label { margin-bottom:22px; }
+.portfolio-h {
+  font-family:var(--serif); font-size:clamp(26px,3.2vw,44px);
+  font-weight:300; font-style:italic; line-height:1.22;
+  color:var(--cream); letter-spacing:-0.015em;
+}
+.portfolio-intro {
+  font-family:var(--serif); font-size:18px; font-weight:300;
+  line-height:1.78; color:var(--mist);
+  max-width:580px; margin-top:22px;
+}
+.portfolio-link {
+  font-family:var(--sans); font-size:10px; font-weight:400;
+  letter-spacing:.26em; text-transform:uppercase;
+  color:var(--gold); text-decoration:none;
+  border-bottom:1px solid var(--gold-dim); padding-bottom:2px;
+  transition:color .3s, border-color .3s;
+}
+.portfolio-link:hover { color:var(--cream); border-color:var(--gold-soft); }
+
+.brand-grid { display:grid; gap:6px; max-width:1240px; margin:0 auto; }
+.brand-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.brand-row-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; }
+.brand-row-4 { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:6px; }
+
+.brand-card {
+  position:relative; overflow:hidden;
+  background:var(--ink-mid);
+  transition:background .3s;
+  border-top:1px solid var(--gold-dim);
+}
+.brand-card:hover { background:rgba(46,43,39,.9); }
+.brand-card:hover .brand-card-img { transform:scale(1.03); }
+
+.brand-card-img {
+  width:100%; height:260px;
+  background-size:cover; background-position:center;
+  background-color:var(--ink);
+  transition:transform .6s ease;
+  filter:brightness(.88);
+}
+.brand-card-info { padding:22px 26px 26px; }
+.brand-card-name {
+  font-family:var(--serif); font-size:clamp(20px,2vw,26px);
+  font-weight:300; font-style:italic; line-height:1.18;
+  color:var(--cream); letter-spacing:-0.012em; margin-bottom:4px;
+}
+.brand-card-cat {
+  font-family:var(--sans); font-size:9px; font-weight:300;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); opacity:.75;
+}
+
+.brand-card-sm .brand-card-img { height:190px; }
+.brand-card-sm .brand-card-info { padding:20px 22px 22px; }
+.brand-card-sm .brand-card-name { font-size:clamp(17px,1.6vw,21px); margin-bottom:3px; }
+.brand-card-sm .brand-card-cat { font-size:8px; letter-spacing:.18em; }
+
+.awards-strip {
+  margin-top:6px;
+  background:var(--cream);
+  padding:36px 44px;
+  display:flex; align-items:center; gap:0;
+  border-top:1px solid var(--gold-dim);
+}
+.awards-label {
   font-family:var(--sans); font-size:10px; font-weight:300;
   letter-spacing:.3em; text-transform:uppercase;
-  color:var(--gold); opacity:.5; margin-bottom:18px;
+  color:var(--ink); opacity:.55;
+  margin-right:36px; flex-shrink:0;
 }
-.reading-h {
-  font-family:var(--serif); font-size:20px; font-weight:300;
-  font-style:italic; color:var(--cream); margin-bottom:12px; line-height:1.4;
+.awards-row {
+  display:flex; align-items:center; justify-content:space-between;
+  flex:1; gap:0;
 }
-.reading-desc {
-  font-family:var(--serif); font-size:14px; font-weight:300;
-  line-height:1.75; color:var(--mist);
+.award-item {
+  flex:1; display:flex; align-items:center; justify-content:center;
+  height:156px; padding:18px 20px;
+  background:transparent;
+  opacity:.92; transition:opacity .3s;
+}
+.award-item:hover { opacity:1; }
+.award-item img {
+  max-height:112px; max-width:100%; object-fit:contain; display:block;
 }
 
 /* ── FINAL CTA ── */
 #cta {
-  padding:140px 52px; text-align:center;
+  position:relative;
+  padding:160px 52px 140px; text-align:center;
   background:var(--ink);
   border-top:1px solid var(--gold-dim);
+  overflow:hidden;
 }
+.cta-bg {
+  position:absolute; inset:0;
+  background:url('clp.jpg') center/cover no-repeat;
+  opacity:.22;
+}
+.cta-bg::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(14,12,10,.55) 0%, rgba(14,12,10,.9) 100%);
+}
+.cta-content { position:relative; z-index:1; max-width:780px; margin:0 auto; }
 .cta-h {
-  font-family:var(--serif); font-size:clamp(32px,5vw,60px);
+  font-family:var(--serif); font-size:clamp(26px,3.4vw,50px);
   font-weight:300; font-style:italic; color:var(--cream);
-  margin-bottom:20px; line-height:1.15;
+  margin-bottom:18px; line-height:1.28; letter-spacing:-0.015em;
 }
 .cta-sub {
-  font-family:var(--serif); font-size:18px; font-weight:300;
-  font-style:italic; color:var(--mist); margin-bottom:48px;
+  font-family:var(--serif); font-size:19px; font-weight:300;
+  font-style:italic; color:var(--mist); margin-bottom:52px;
+  line-height:1.65;
 }
-.cta-btn {
-  display:inline-block; font-family:var(--sans); font-size:11px;
-  font-weight:400; letter-spacing:.26em; text-transform:uppercase;
-  color:var(--gold); text-decoration:none;
-  border:1px solid var(--gold-soft); padding:16px 44px;
-  transition:all .4s;
+.cta-actions {
+  display:flex; flex-direction:column; align-items:center; gap:20px;
 }
-.cta-btn:hover { background:var(--gold); color:var(--ink); }
+.cta-wa {
+  display:inline-flex; align-items:center; gap:14px;
+  background:rgba(37,211,102,.1); border:1px solid rgba(37,211,102,.42);
+  padding:16px 36px;
+  font-family:var(--sans); font-size:11px; font-weight:400;
+  letter-spacing:.26em; text-transform:uppercase;
+  color:var(--cream); text-decoration:none;
+  transition:background .3s, border-color .3s;
+}
+.cta-wa:hover { background:rgba(37,211,102,.2); border-color:rgba(37,211,102,.65); }
+.cta-wa svg { width:15px; height:15px; fill:rgba(37,211,102,.88); }
+.cta-phone {
+  font-family:var(--sans); font-size:14px; font-weight:300;
+  letter-spacing:.18em;
+  color:rgba(232,226,216,.68); text-decoration:none;
+  transition:color .3s;
+}
+.cta-phone:hover { color:var(--gold); }
 .cta-note {
   font-family:var(--sans); font-size:10px; font-weight:300;
-  letter-spacing:.16em; color:rgba(232,226,216,.2); margin-top:28px;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(232,226,216,.22); margin-top:44px;
 }
+
+/* ── LOCATION ── */
+#location { padding:0; background:var(--ink-soft); position:relative; }
+.loc-label { text-align:center; padding:80px 24px 40px; }
+.loc-map { width:100%; position:relative; }
+.loc-link { text-align:center; padding:20px 24px 72px; }
 
 /* ── FOOTER ── */
 footer {
-  padding:52px; text-align:center;
+  padding:56px 52px; text-align:center;
   border-top:1px solid rgba(196,162,101,.08);
+  background:var(--ink);
+  display:flex; flex-direction:column; gap:14px;
 }
-footer p {
+footer .f-lead {
+  font-family:var(--serif); font-size:15px; font-style:italic;
+  color:rgba(232,226,216,.4); letter-spacing:.05em;
+}
+footer .f-meta {
   font-family:var(--sans); font-size:10px; font-weight:300;
-  letter-spacing:.2em; text-transform:uppercase;
-  color:rgba(232,226,216,.18);
+  letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(232,226,216,.2);
 }
+footer .f-meta a {
+  color:inherit; text-decoration:none; margin:0 10px;
+  transition:color .3s;
+}
+footer .f-meta a:hover { color:var(--gold); }
 
 /* ── MOBILE ── */
 @media(max-width:900px){
@@ -411,33 +676,75 @@ footer p {
   .nav-logo { height:44px; }
   .nav-link { display:none; }
   #hero { padding:0 24px 52px; }
+  .hero-h1 { font-size:clamp(30px,8vw,52px); }
+  .hero-sub { font-size:16px; }
+  .about-h, .place-h, .craft-h, .invitation-h { font-size:clamp(26px,6vw,40px); line-height:1.22; }
+  .about-body, .feeling-body, .place-body, .craft-body, .clp-text, .res-body, .invitation-body, .portfolio-intro { font-size:16px; line-height:1.78; }
+  .feeling-h { font-size:clamp(22px,5.5vw,32px); line-height:1.38; }
+  .clp-h { font-size:clamp(22px,5.5vw,34px); }
+  .life-body { font-size:15px; }
+  .craft-list li { font-size:16px; }
   .sec { padding:80px 24px; }
+  .about-grid { grid-template-columns:1fr; }
+  .about-img { min-height:50vh; }
+  .about-text { padding:52px 28px; }
   .feeling-grid { grid-template-columns:1fr; }
-  .feeling-img { min-height:50vh; }
-  .feeling-text { padding:52px 28px; }
+  .feeling-img { min-height:50vh; order:1; }
+  .feeling-text { padding:52px 28px; order:2; }
   .place-text { grid-template-columns:1fr; gap:28px; }
   .mosaic { grid-template-columns:1fr 1fr; }
-  .mos-1,.mos-2,.mos-3,.mos-4 { grid-column:auto; grid-row:auto; min-height:240px; }
+  .mos-1,.mos-2,.mos-3,.mos-4,.mos-5,.mos-6,.mos-7,.mos-8,.mos-9 { grid-column:auto; grid-row:auto; min-height:240px; }
   .life-grid { grid-template-columns:1fr 1fr; }
   .res-split { grid-template-columns:1fr; }
   .res-img { min-height:50vh; }
   .res-text { padding:52px 28px; }
   .res-reverse .res-img { order:0; }
   .res-reverse .res-text { order:0; }
-  .pillars { grid-template-columns:1fr; }
+  .craft-grid { grid-template-columns:1fr; }
+  .craft-img { min-height:44vh; }
+  .craft-text { padding:52px 28px; }
+  .duet { grid-template-columns:1fr; }
+  .duet-img { min-height:48vh; }
+  .duet-copy { padding:52px 28px; }
+  .strip { grid-template-columns:1fr; }
+  .strip-cell { min-height:40vh; }
   .clp-layout { grid-template-columns:1fr; }
   .clp-img { min-height:50vh; }
   .clp-body-wrap { padding:44px 28px; }
-  .dining-feature { grid-template-columns:1fr; }
-  .dining-img { min-height:44vh; }
-  .dining-wrap { padding:44px 28px; }
-  .comm-imgs { grid-template-columns:1fr; }
-  .reading-grid { grid-template-columns:1fr; }
+  .clp-row { grid-template-columns:1fr; }
+  .portfolio-section { padding:80px 24px; }
+  .portfolio-header { flex-direction:column; align-items:flex-start; gap:16px; }
+  .portfolio-h { font-size:clamp(24px,6vw,34px); }
+  .brand-row-2 { grid-template-columns:1fr; }
+  .brand-row-3 { grid-template-columns:1fr; }
+  .brand-row-4 { grid-template-columns:1fr 1fr; }
+  .brand-card-img { height:220px; }
+  .brand-card-sm .brand-card-img { height:180px; }
+  .brand-card-info { padding:18px 22px 22px; }
+  .brand-card-name { font-size:clamp(19px,4.8vw,24px); }
+  .brand-card-sm .brand-card-name { font-size:clamp(17px,4.5vw,21px); }
+  .awards-strip { flex-direction:column; gap:18px; padding:24px 18px; }
+  .awards-label { margin-right:0; }
+  .awards-row { flex-wrap:wrap; justify-content:center; }
+  .award-item { flex:0 0 33.33%; height:120px; }
+  .award-item img { max-height:88px; }
+  #cta { padding:100px 24px 80px; }
+  .cta-h { font-size:clamp(28px,8vw,44px); }
+  .cta-sub { font-size:16px; }
+  .cta-wa { padding:14px 24px; font-size:10px; letter-spacing:.2em; }
+  .cta-phone { font-size:13px; }
+  .loc-label { padding:60px 24px 32px; }
+  footer { padding:40px 24px; }
 }
 @media(max-width:520px){
   .life-grid { grid-template-columns:1fr; }
-  .comm-imgs { grid-template-columns:1fr; }
   .mosaic { grid-template-columns:1fr; }
+  .award-item { flex:0 0 50%; height:100px; }
+  .award-item img { max-height:72px; }
+  .brand-row-4 { grid-template-columns:1fr; }
+  .nav-cta { padding:8px 16px; font-size:9px; letter-spacing:.18em; }
+  .cta-wa { padding:14px 20px; font-size:9px; letter-spacing:.16em; gap:10px; }
+  .inv-card { aspect-ratio:3/4; }
 }
 </style>
 </head>
@@ -450,7 +757,7 @@ footer p {
     <a href="#the-place" class="nav-link">The Place</a>
     <a href="#residences" class="nav-link">Residences</a>
     <a href="#wellness" class="nav-link">Wellness</a>
-    <a href="#cta" class="nav-cta">Arrange a Visit</a>
+    <a href="#cta" class="nav-cta">Private Introduction</a>
   </div>
 </nav>
 
@@ -459,116 +766,145 @@ footer p {
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow rv">Phuket, Thailand</div>
-    <h1 class="hero-h1 rv rv-delay-1">You built something<br>extraordinary.<br><em>Now live it.</em></h1>
-    <p class="hero-sub rv rv-delay-2">232 acres of forest, nine lakes, and a working farm. A wellness community in Phuket for people who already have everything — except the life that matches.</p>
+    <div class="hero-eyebrow rv">Tri Vananda &ensp;·&ensp; Phuket</div>
+    <h1 class="hero-h1 rv rv-delay-1">Your Life,<br><em>Held Differently.</em></h1>
+    <p class="hero-sub rv rv-delay-2">Built for people who have stopped performing the weekend.</p>
     <div class="hero-line rv rv-delay-3"></div>
-    <p class="hero-meta rv rv-delay-3">15 minutes from Phuket International Airport &ensp;·&ensp; 77 families already home</p>
+    <p class="hero-meta rv rv-delay-3">Fifteen minutes from the airport &ensp;·&ensp; By private introduction</p>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT TRI VANANDA ═══════════ -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img" style="background:url('landscape.jpg') center/cover no-repeat;"></div>
+    <div class="about-text">
+      <p class="label rv">About Tri Vananda</p>
+      <h2 class="about-h rv rv-delay-1">A place to live,<br><em>not to escape to.</em></h2>
+      <div class="gold-rule rv rv-delay-2"></div>
+      <p class="about-body rv rv-delay-2">
+        Tri Vananda is a 232-acre well-living community in the quiet northeast of Phuket. A place where body, mind, and family life improve together — not on a schedule, but as a way of living.
+      </p>
+      <div class="gold-rule rv rv-delay-3"></div>
+      <p class="about-body rv rv-delay-3">
+        Nine lakes. A regenerative farm. A forest left mostly as it was. Private pool villas, fully furnished, ready to live in. Everything your family needs, inside one ecosystem.
+      </p>
+    </div>
   </div>
 </section>
 
 <!-- ═══════════ THE FEELING ═══════════ -->
 <section id="feeling">
   <div class="feeling-grid">
-    <div class="feeling-img"></div>
     <div class="feeling-text">
       <p class="label rv">The Feeling</p>
-      <h2 class="feeling-h rv rv-delay-1">You stop.<br>Not because someone<br>asked you to.<br>Because you can.</h2>
+      <h2 class="feeling-h rv rv-delay-1">A community built<br>around <em>the lives<br>you love most.</em></h2>
       <div class="gold-rule rv rv-delay-2"></div>
       <p class="feeling-body rv rv-delay-2">
-        The air is different here. Cooler. Slower. It smells of
-        frangipani and wet stone. The sound of water over rock
-        replaces the noise you stopped noticing years ago.
+        You have already built the business. The career. The home. What you come here for is the other part of the life — the one you always said you would get around to. Here, you finally do.
       </p>
       <div class="gold-rule rv rv-delay-3"></div>
       <p class="feeling-body rv rv-delay-3">
-        Most people describe this as the turning point. Not the brochure.
-        Not the floor plan. Just a feeling — that the life they'd been
-        working toward was already here, waiting.
+        Mornings in the forest. Long lunches with the family. Neighbours who become friends across generations. Owning a residence at Tri Vananda is not about a second address. It is about the quiet feeling of having chosen well — for yourself, and for everyone you love.
       </p>
     </div>
+    <div class="feeling-img"></div>
   </div>
 </section>
-
-<!-- ═══════════ ATMOSPHERIC BREAK ═══════════ -->
-<div class="atm">
-  <div class="atm-bg" style="background-image:url('landscape.jpg')"></div>
-  <div class="atm-overlay"></div>
-  <div class="atm-content rv">
-    <p class="atm-quote">"I wasn't looking for a house.<br>I was looking for a reason to stop rushing."</p>
-    <p class="atm-attr">Tri Vananda resident, Bangkok</p>
-  </div>
-</div>
 
 <!-- ═══════════ THE PLACE ═══════════ -->
 <section id="the-place" class="sec sec-dark">
   <p class="label rv">The Place</p>
   <div class="place-text rv rv-delay-1">
-    <h2 class="place-h">232 acres of forest,<br>nine lakes, and a working farm.<br>The quiet side of the island.</h2>
+    <h2 class="place-h">A landscape, first.<br>A place, built gently.<br><em>The rest, left to nature.</em></h2>
     <div>
-      <p class="place-body" style="margin-bottom:20px;">
-        Tri Vananda sits in the green hills of Phuket's northeast — the quiet side of
-        the island, fifteen minutes from the airport, a world away from the crowds.
-        Nine freshwater lakes thread through tropical forest. Hornbills nest in the canopy.
-      </p>
       <p class="place-body">
-        This is not a resort. It is a place where people choose to live — with
-        hospitality woven into every detail, from the concierge who knows
-        what you need before you ask, to the chef who remembers how you take your morning broth.
+        At the centre of the community is the Community House — a swimming pool, an Active Movement Studio, a Tweenie Club for the younger ones, and Jampa, a Michelin Green Star restaurant. Health Resort by Clinique La Prairie at Tri Vananda — the 90-year Swiss health institution's first resort in Southeast Asia — sits inside the community. Nine lakes, a wetland reserve, and an abundance of nature hold the rest. Fifteen minutes from the airport. Fifteen minutes from the beach. Everything your family needs, nothing you don't.
       </p>
     </div>
   </div>
   <div class="mosaic rv rv-delay-2">
     <div class="mos-item mos-1" style="background-image:url('hero.jpg')">
-      <span class="mos-cap">Nine lakes · 232 acres</span>
+      <span class="mos-cap">232 acres · Tri Vananda</span>
     </div>
-    <div class="mos-item mos-2" style="background-image:url('com-01.jpg')">
-      <span class="mos-cap">The organic garden</span>
+    <div class="mos-item mos-2" style="background-image:url('mood.jpg')">
+      <span class="mos-cap">Nature · 85% preserved</span>
     </div>
-    <div class="mos-item mos-3" style="background-image:url('com-02.jpg')">
-      <span class="mos-cap">Residents · Saturday morning</span>
+    <div class="mos-item mos-3" style="background-image:url('farm.jpg')">
+      <span class="mos-cap">The Farm at Tri Vananda</span>
     </div>
-    <div class="mos-item mos-4" style="background-image:url('mood.jpg')">
-      <span class="mos-cap">85% preserved nature</span>
+    <div class="mos-item mos-4" style="background-image:url('jampa.jpg')">
+      <span class="mos-cap">Community House — Jampa Restaurant</span>
+    </div>
+    <div class="mos-item mos-5" style="background-image:url('swimming-pool.jpg')">
+      <span class="mos-cap">Community House — Swimming Pool</span>
+    </div>
+    <div class="mos-item mos-6" style="background-image:url('active-movement-studio.jpg')">
+      <span class="mos-cap">Community House — Active Movement Studio</span>
+    </div>
+    <div class="mos-item mos-7" style="background-image:url('tweenie-club.jpg')">
+      <span class="mos-cap">Community House — Tweenie Club</span>
+    </div>
+    <div class="mos-item mos-8" style="background-image:url('clp-01.jpg')">
+      <span class="mos-cap">Health Resort by Clinique La Prairie at Tri Vananda</span>
+    </div>
+    <div class="mos-item mos-9" style="background-image:url('com-03.jpg')">
+      <span class="mos-cap">Community Living, a Place for Every Generation</span>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ THE LIFE (rhythm grid) ═══════════ -->
+<!-- ═══════════ THE LIFE (5-card timeline) ═══════════ -->
 <section id="the-life" class="sec sec-deep">
   <p class="label rv">The Life</p>
-  <h2 class="place-h rv rv-delay-1" style="margin-bottom:12px;">Your day doesn't follow a schedule.<br>It follows <em>you.</em></h2>
+  <h2 class="place-h rv rv-delay-1" style="margin-bottom:12px; max-width:640px;">One day at<br><em>Tri Vananda.</em></h2>
   <div class="life-grid">
     <div class="life-card rv rv-delay-1">
-      <img src="clp-01.jpg" alt="Morning" class="life-img">
+      <img src="running.jpg" alt="Morning sport" class="life-img">
       <div class="life-content">
-        <p class="life-time">Morning</p>
-        <h3 class="life-h">Before the world<br>needs anything</h3>
-        <p class="life-body">Lakeside yoga. Cool stone underfoot. Mist still on the water. The only notification is birdsong.</p>
+        <p class="life-time">06:30</p>
+        <h3 class="life-h">Outside,<br>before the<br>phone</h3>
+        <p class="life-body">A run around the lake. Yoga in the open air. A ride along the forest trail. The day is yours before anyone asks for it.</p>
       </div>
     </div>
     <div class="life-card rv rv-delay-2">
-      <img src="jampa.jpg" alt="Midday" class="life-img">
+      <img src="community-02.jpg" alt="In-Body scan" class="life-img">
       <div class="life-content">
-        <p class="life-time">Midday</p>
-        <h3 class="life-h">Flavour that<br>means something</h3>
-        <p class="life-body">Lunch at Jampa — herbs from the garden, fish from the Andaman. A menu built on seasons, not spreadsheets.</p>
+        <p class="life-time">09:00</p>
+        <h3 class="life-h">A check-in<br>with your<br>body</h3>
+        <p class="life-body">An In-Body scan at Clinique La Prairie. Fifteen minutes, and you know where you stand — explained by a doctor who knows your name.</p>
       </div>
     </div>
     <div class="life-card rv rv-delay-3">
-      <img src="clp-02.jpg" alt="Afternoon" class="life-img">
+      <img src="hideaway.jpg" alt="Hideaway by Jampa" class="life-img">
       <div class="life-content">
-        <p class="life-time">Afternoon</p>
-        <h3 class="life-h">Your body,<br>properly listened to</h3>
-        <p class="life-body">A longevity consultation at Clinique La Prairie. Not because something is wrong — because you finally have time to be well.</p>
+        <p class="life-time">11:00</p>
+        <h3 class="life-h">Lunch at<br>Hideaway<br>by Jampa</h3>
+        <p class="life-body">Picked from the farm this morning. Cooked over live fire. Eaten slowly. Michelin Green Star. Nowhere else to be.</p>
       </div>
     </div>
     <div class="life-card rv rv-delay-4">
-      <img src="circle.jpg" alt="Evening" class="life-img">
+      <img src="local-roots.jpg" alt="Local Roots at the Farm" class="life-img">
       <div class="life-content">
-        <p class="life-time">Evening</p>
-        <h3 class="life-h">The kind of night<br>you used to imagine</h3>
-        <p class="life-body">Sunset over the lake. A glass of something good. Dinner with people who chose to be here. No agenda. Just presence.</p>
+        <p class="life-time">13:00</p>
+        <h3 class="life-h">Local Roots<br>at the<br>Farm</h3>
+        <p class="life-body">A community gathering, hosted monthly through the high season. Neighbours, music, a long table in the garden, and children running between the trees.</p>
+      </div>
+    </div>
+    <div class="life-card rv rv-delay-4">
+      <img src="family.jpg" alt="Time with the family" class="life-img">
+      <div class="life-content">
+        <p class="life-time">16:00</p>
+        <h3 class="life-h">Time<br>with the<br>family</h3>
+        <p class="life-body">The pool, the garden, a table under the trees. The talk drifts, as it does here, toward the things that matter — how everyone is growing.</p>
+      </div>
+    </div>
+    <div class="life-card rv rv-delay-4">
+      <img src="sunset.jpg" alt="Evening at the villa" class="life-img">
+      <div class="life-content">
+        <p class="life-time">18:30</p>
+        <h3 class="life-h">Sunset<br>at the<br>villa</h3>
+        <p class="life-body">The lake turns gold. The family is around the pool. Dinner on the deck. The hour that belongs to no one else.</p>
       </div>
     </div>
   </div>
@@ -577,11 +913,9 @@ footer p {
 <!-- ═══════════ RESIDENCES ═══════════ -->
 <section id="residences" class="sec sec-dark" style="padding-bottom:64px;">
   <p class="label rv">The Residences</p>
-  <h2 class="place-h rv rv-delay-1" style="max-width:580px; margin-bottom:20px;">Two collections.<br>One idea:<br><em>home should feel like home.</em></h2>
-  <p class="place-body rv rv-delay-2" style="max-width:520px;">
-    Every home at Tri Vananda is designed for the life you actually want —
-    space for quiet and for gathering, materials that get better with time,
-    and rooms that open to the forest, not just a view of it.
+  <h2 class="place-h rv rv-delay-1" style="max-width:620px; margin-bottom:24px;">Two styles.<br>Seven biophilic layouts.<br><em>Fully furnished.</em></h2>
+  <p class="place-body rv rv-delay-2" style="max-width:620px;">
+    The private pool villas at Tri Vananda come in two styles — Vana and Nanda — and seven floor plans, from 325 to 780 square metres. Two to four bedrooms. Each villa has a private pool, en-suite bathrooms, and ceilings up to 6.7 metres. Fully furnished and equipped, ready to live in from the day you arrive.
   </p>
 </section>
 
@@ -593,12 +927,11 @@ footer p {
     <h3 class="res-name rv rv-delay-1">Vana</h3>
     <div class="gold-rule rv rv-delay-1"></div>
     <p class="res-body rv rv-delay-2">
-      Set within the forest canopy. Timber, stone, and glass — the kind of home
-      where you can't quite tell where the inside ends and the outside begins.
+      Timber, courtyards, and canopy. A biophilic design rooted in natural materials, where the rooms open out into the forest and the forest quietly steps back in.
     </p>
     <p class="res-detail rv rv-delay-3">
-      3–4 Bedrooms &ensp;·&ensp; Private garden<br>
-      Forest setting &ensp;·&ensp; By private inquiry
+      Three layouts &ensp;·&ensp; Two to four bedrooms<br>
+      333–780 sq.m. &ensp;·&ensp; By private inquiry
     </p>
   </div>
 </div>
@@ -611,163 +944,209 @@ footer p {
     <h3 class="res-name rv rv-delay-1">Nanda</h3>
     <div class="gold-rule rv rv-delay-1"></div>
     <p class="res-body rv rv-delay-2">
-      Elevated above the lakes. The views are wide and uninterrupted — the kind
-      that slow your breathing without you deciding to. Space, light, and quiet.
+      Curved glass, natural light, and the lake close by. A modernist, eco-conscious architecture that sits lightly on the land and keeps the view uninterrupted.
     </p>
     <p class="res-detail rv rv-delay-3">
-      4–5 Bedrooms &ensp;·&ensp; Infinity pool<br>
-      Panoramic lake view &ensp;·&ensp; By private inquiry
+      Four layouts &ensp;·&ensp; Two to four bedrooms<br>
+      325–779 sq.m. &ensp;·&ensp; By private inquiry
     </p>
   </div>
 </div>
 
-<!-- ═══════════ THREE PILLARS ═══════════ -->
-<section class="sec sec-dark">
-  <p class="label rv">Three Pillars · One Address</p>
-  <h2 class="place-h rv rv-delay-1" style="margin-bottom:12px;">Wellness. Hospitality. Nature.<br>Each one holds this place steady.</h2>
-  <div class="pillars rv rv-delay-2">
-    <div class="pillar">
-      <p class="pillar-icon">CLP</p>
-      <h3 class="pillar-h">Clinique La Prairie<br>Wellness</h3>
-      <p class="pillar-body">Clinique La Prairie Health Resort opening soon at Tri Vananda — ninety years of longevity science, structured into daily life. Not a spa. A clinical programme with real protocols.</p>
-    </div>
-    <div class="pillar">
-      <p class="pillar-icon">Trisara</p>
-      <h3 class="pillar-h">Hospitality<br>Experience</h3>
-      <p class="pillar-body">Our service standard is inspired by over twenty years of Trisara — one of Thailand's most respected names in private hospitality. That same standard now guides how we look after every resident.</p>
-    </div>
-    <div class="pillar">
-      <p class="pillar-icon">85%</p>
-      <h3 class="pillar-h">Nature<br>Preserved</h3>
-      <p class="pillar-body">Only 15% of 232 acres is built on. The rest — nine lakes, forest, working farm — is not amenity. It is the foundation everything else rests on.</p>
+<!-- ═══════════ CRAFT / CUSTOMIZATION ═══════════ -->
+<section id="craft">
+  <div class="craft-grid">
+    <div class="craft-img"></div>
+    <div class="craft-text">
+      <p class="label rv">Craft for Your Needs</p>
+      <h2 class="craft-h rv rv-delay-1">A villa built<br>around the way<br><em>you actually live.</em></h2>
+      <p class="craft-body rv rv-delay-2">
+        The seven standard layouts are a starting point, not the finish line. If you want to reshape a kitchen, add a wine room, a music room, or an extra office — we can. Our architects work with you to tailor the villa around your real life, quietly and without fuss.
+      </p>
+      <ul class="craft-list rv rv-delay-3">
+        <li><span class="cn">01</span>Kitchens sized to how you actually cook.</li>
+        <li><span class="cn">02</span>Rooms repurposed for how your family lives.</li>
+        <li><span class="cn">03</span>Extra wine rooms, offices, or studios.</li>
+        <li><span class="cn">04</span>Light, volume, and flow — set to your taste.</li>
+        <li><span class="cn">05</span>A villa that feels like it was always yours.</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- ═══════════ WELLNESS / CLP ═══════════ -->
-<section id="wellness" class="sec sec-deep">
-  <p class="label rv">Wellness</p>
-  <h2 class="place-h rv rv-delay-1" style="max-width:540px; margin-bottom:12px;">Longevity is not about living longer.<br>It is about <em>living better.</em></h2>
+<section id="wellness" class="sec sec-dark">
+  <p class="label rv">Wellness at the Top Tier</p>
+  <h2 class="place-h rv rv-delay-1" style="max-width:640px; margin-bottom:12px;">Clinique La Prairie.<br><em>Since 1931.</em></h2>
   <div class="clp-layout rv rv-delay-2">
-    <div class="clp-img" style="background-image:url('clp-03.jpg')"></div>
+    <div class="clp-img" style="background-image:url('clp-01.jpg')"></div>
     <div class="clp-body-wrap">
-      <h3 class="clp-h">Clinique La Prairie<br>at Tri Vananda</h3>
+      <h3 class="clp-h">The first Health Resort by<br>Clinique La Prairie in Southeast Asia.</h3>
       <div class="gold-rule"></div>
       <p class="clp-text" style="margin-bottom:16px;">
-        Founded in 1931 in Montreux, Switzerland, Clinique La Prairie has spent nearly
-        a century understanding what makes the human body thrive — not just survive.
+        Nearly a century of Swiss science, precision, and calm — now a short walk from your villa. A sanctuary built around four pillars: medical, wellbeing, nutrition, and movement.
       </p>
-      <p class="clp-text">
-        At Tri Vananda, their longevity programmes are woven into daily life.
-        Personalised assessments. Regenerative therapies. A medical team that
-        knows your history and your goals. Wellness here is not a weekend —
-        it is a way of living.
+      <p class="clp-text" style="margin-bottom:22px;">
+        Personalised care. Science-led treatments. Long-term support for you and your family.
       </p>
+      <p>
+        <a href="https://www.cliniquelaprairie.com/destinations/thailand-phuket/" target="_blank" rel="noopener"
+           style="font-family:var(--sans); font-size:10px; font-weight:300; letter-spacing:.24em; text-transform:uppercase; color:var(--gold-soft); text-decoration:none; border-bottom:1px solid var(--gold-dim); padding-bottom:2px; transition:color .3s;">
+          cliniquelaprairie.com &rarr;
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="clp-row rv rv-delay-3">
+    <div class="clp-row-item" style="background-image:url('clp-02.jpg')"></div>
+    <div class="clp-row-item" style="background-image:url('clp-04.jpg')"></div>
+    <div class="clp-row-item" style="background-image:url('clp-03.jpg')"></div>
+  </div>
+</section>
+
+<!-- ═══════════ MONTARA HOSPITALITY GROUP ═══════════ -->
+<section class="portfolio-section" id="montara-portfolio">
+
+  <div class="portfolio-header rv">
+    <div>
+      <p class="label">Montara Hospitality Group</p>
+      <p class="portfolio-h">Sharing natural and cultural heritage.</p>
+      <p class="portfolio-intro">Montara Hospitality Group invests in best-in-class hospitality platforms for award-winning restaurants, wellness, community engagement, and heritage conservation.</p>
+    </div>
+    <a href="https://www.montarahospitality.com" target="_blank" rel="noopener" class="portfolio-link">montarahospitality.com &rarr;</a>
+  </div>
+
+  <div class="brand-grid">
+
+    <!-- Row 1: Trisara | PRU | Praya Palazzo -->
+    <div class="brand-row-3 rv">
+      <div class="brand-card">
+        <div class="brand-card-img" style="background-image:url('trisara-01.jpg');"></div>
+        <div class="brand-card-info">
+          <p class="brand-card-name">Trisara</p>
+          <p class="brand-card-cat">Luxury Resort &middot; Phuket</p>
+        </div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card-img" style="background-image:url('pru.jpg');"></div>
+        <div class="brand-card-info">
+          <p class="brand-card-name">PRU</p>
+          <p class="brand-card-cat">Michelin-Starred Restaurant &middot; Phuket</p>
+        </div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card-img" style="background-image:url('praya-palazzo.jpg');"></div>
+        <div class="brand-card-info">
+          <p class="brand-card-name">Praya Palazzo</p>
+          <p class="brand-card-cat">Heritage Hotel &middot; Bangkok</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: Cielo & Spices | La Crique | Thai Library | Praya Dining -->
+    <div class="brand-row-4 rv">
+      <div class="brand-card brand-card-sm">
+        <div class="brand-card-img" style="background-image:url('cielo-spices.jpg');"></div>
+        <div class="brand-card-info">
+          <p class="brand-card-name">Cielo &amp; Spices</p>
+          <p class="brand-card-cat">International Dining</p>
+        </div>
+      </div>
+      <div class="brand-card brand-card-sm">
+        <div class="brand-card-img" style="background-image:url('la-crique.jpg');"></div>
+        <div class="brand-card-info">
+          <p class="brand-card-name">La Crique</p>
+          <p class="brand-card-cat">Oceanfront Mediterranean</p>
+        </div>
+      </div>
+      <div class="brand-card brand-card-sm">
+        <div class="brand-card-img" style="background-image:url('thai-library.jpg');"></div>
+        <div class="brand-card-info">
+          <p class="brand-card-name">Thai Library</p>
+          <p class="brand-card-cat">Contemporary Thai Cuisine</p>
+        </div>
+      </div>
+      <div class="brand-card brand-card-sm">
+        <div class="brand-card-img" style="background-image:url('praya-dining.jpg');"></div>
+        <div class="brand-card-info">
+          <p class="brand-card-name">Praya Dining</p>
+          <p class="brand-card-cat">Riverside Thai Dining &middot; Bangkok</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: Awards -->
+    <div class="awards-strip rv">
+      <p class="awards-label">Recognition</p>
+      <div class="awards-row">
+        <div class="award-item"><img src="condenast-goldlist2025-transparent.svg" alt="Cond&eacute; Nast Traveler Gold List 2025"></div>
+        <div class="award-item"><img src="TL-Award-2024-OK-transparent.png" alt="Travel + Leisure Luxury Awards 2024"></div>
+        <div class="award-item"><img src="Michelin-key-logo.svg" alt="Michelin Key 2026"></div>
+        <div class="award-item"><img src="Michelin-one-star-logo.png" alt="Michelin One Star 2025"></div>
+        <div class="award-item"><img src="TL-Tastemaker2024-transparent.svg" alt="Travel + Leisure Tastemakers 2024"></div>
+        <div class="award-item"><img src="green-transparent.png" alt="Michelin Sustainable Gastronomy"></div>
+        <div class="award-item"><img src="50best-descovery-transparent.svg" alt="50 Best Discovery"></div>
+        <div class="award-item"><img src="Ahead-final-list-transparent.svg" alt="AHEAD Asia Finalist"></div>
+        <div class="award-item"><img src="Q-GAP-Logo-transparent.png" alt="Q Mark Thailand"></div>
+        <div class="award-item"><img src="thai-select.jpg" alt="Thai Select"></div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ═══════════ THE INVITATION ═══════════ -->
+<section id="invitation">
+  <div class="invitation-head">
+    <p class="label rv" style="margin-bottom:28px;">The Invitation</p>
+    <div class="invitation-rule rv rv-delay-1"></div>
+    <h2 class="invitation-h rv rv-delay-1">Those who arrive first<br><em>shape what follows.</em></h2>
+    <p class="invitation-body rv rv-delay-2">
+      Every enduring place is made by the handful of families who choose it early &mdash; who set the rhythm, the tone, and the quiet rules the rest inherit. Before the doors open wider, there is still room to leave a mark.
+    </p>
+  </div>
+  <div class="invitation-showcase rv rv-delay-2">
+    <div class="inv-card" style="background-image:url('couple.jpg')">
+      <span class="inv-card-cap">Among the First</span>
+    </div>
+    <div class="inv-card" style="background-image:url('circle.jpg')">
+      <span class="inv-card-cap">A Circle of Their Own</span>
+    </div>
+    <div class="inv-card" style="background-image:url('end-03.jpg')">
+      <span class="inv-card-cap">Setting the Tone</span>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ DINING ═══════════ -->
-<section class="sec sec-dark">
-  <p class="label rv">Dining</p>
-  <h2 class="place-h rv rv-delay-1" style="max-width:500px; margin-bottom:12px;">Good food, grown here,<br>cooked simply,<br>shared together.</h2>
-  <div class="dining-feature rv rv-delay-2">
-    <div class="dining-img" style="background-image:url('jampa.jpg')"></div>
-    <div class="dining-wrap">
-      <h3 class="dining-h">Jampa</h3>
-      <div class="gold-rule"></div>
-      <p class="dining-text" style="margin-bottom:16px;">
-        Farm to villa is not a phrase here — it's a 90-metre walk. From the
-        community garden to the kitchen. Herbs picked this morning. Fish from
-        the Andaman. A menu that follows the seasons.
-      </p>
-      <p class="dining-text">
-        Jampa is where the community sits down together. Birthdays, Sunday brunches,
-        the quiet Tuesday lunch where you have nowhere else to be.
-      </p>
+<!-- ═══════════ FINAL CTA ═══════════ -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <p class="label rv" style="margin-bottom:24px;">A Private Visit</p>
+    <h2 class="cta-h rv rv-delay-1">Come and walk <em>the land.</em></h2>
+    <p class="cta-sub rv rv-delay-2">There is no script, and nothing to rush.<br>A message begins a conversation. A conversation, in time, becomes a visit.</p>
+    <div class="cta-actions rv rv-delay-3">
+      <a href="https://wa.me/66953719494?text=I'd%20like%20to%20arrange%20a%20private%20visit%20to%20Tri%20Vananda" target="_blank" class="cta-wa">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Begin a private conversation on WhatsApp
+      </a>
+      <a href="tel:+66953719494" class="cta-phone">+66 95 371 9494</a>
     </div>
-  </div>
-</section>
-
-<!-- ═══════════ COMMUNITY ═══════════ -->
-<section class="sec sec-deep">
-  <p class="label rv" style="text-align:center;">Community · Local Roots</p>
-  <h2 class="place-h rv rv-delay-1" style="text-align:center; max-width:540px; margin:0 auto 12px;">
-    This is what it looks like<br>when a community <em>actually lives</em><br>together.
-  </h2>
-  <p class="comm-body-text rv rv-delay-2">
-    Saturday mornings at the farm. Hands in the soil. Music drifting across the garden.
-    Children running between the trees while their parents sit with coffee and conversation.
-    Workshops, seasonal markets, cooking together, listening together, growing together.
-    It happens here because the place was built for it.
-  </p>
-  <!-- Community image placeholders — replace with actual Local Roots / community photos -->
-  <div class="comm-imgs rv rv-delay-2">
-    <div class="comm-img-item" style="background:var(--ink-mid);">
-      <span class="comm-img-ph">Local Roots · The Farm · photo placeholder</span>
-    </div>
-    <div class="comm-img-item" style="background:var(--ink-mid);">
-      <span class="comm-img-ph">Community workshop · photo placeholder</span>
-    </div>
-    <div class="comm-img-item" style="background:var(--ink-mid);">
-      <span class="comm-img-ph">Seasonal gathering · photo placeholder</span>
-    </div>
-  </div>
-  <p class="comm-body-text rv rv-delay-3" style="margin-top:40px;">
-    The farm grows the food. The kitchen serves the community.
-    The community shapes the place. That's how it works here — not a programme, just a way of living.
-  </p>
-</section>
-
-<!-- ═══════════ ATMOSPHERIC BREAK 2 ═══════════ -->
-<div class="atm">
-  <div class="atm-bg" style="background-image:url('hero-crop.jpg')"></div>
-  <div class="atm-overlay"></div>
-  <div class="atm-content rv">
-    <p class="atm-quote">"The real luxury is not what you own.<br>It's how your ordinary day feels."</p>
-    <p class="atm-attr">— Tri Vananda</p>
-  </div>
-</div>
-
-<!-- ═══════════ FURTHER READING ═══════════ -->
-<section class="sec sec-dark">
-  <p class="label rv">Further Reading</p>
-  <div class="reading-grid rv rv-delay-1">
-    <a href="c2-03-editorial.html" class="reading-card">
-      <p class="reading-type">Editorial</p>
-      <h3 class="reading-h">The Decision That Made Itself</h3>
-      <p class="reading-desc">A weekend visit. A quiet dinner. And a feeling that something had shifted. One couple's story of arriving.</p>
-    </a>
-    <a href="founders-memo.html" class="reading-card">
-      <p class="reading-type">Founder</p>
-      <h3 class="reading-h">Founder's Memo</h3>
-      <p class="reading-desc">Why a family chose to build a place like this — and what it means to live by the same standard you set for others.</p>
-    </a>
-    <a href="coherence-map.html" class="reading-card">
-      <p class="reading-type">Framework</p>
-      <h3 class="reading-h">Coherence Map</h3>
-      <p class="reading-desc">Wellness, hospitality, nature, community, dining, home — how every part of daily life here connects.</p>
-    </a>
+    <p class="cta-note rv rv-delay-4">By referral or direct inquiry only &ensp;·&ensp; Thep Krasatti, Thalang District, Phuket 83110</p>
   </div>
 </section>
 
 <!-- ═══════════ LOCATION ═══════════ -->
-<section class="sec sec-deep" style="padding-bottom:80px;">
-  <p class="label rv" style="text-align:center;">Location</p>
-  <h2 class="place-h rv rv-delay-1" style="text-align:center; max-width:480px; margin:0 auto 16px;">
-    15 minutes from the airport.<br>15 minutes from the sea.
-  </h2>
-  <p class="place-body rv rv-delay-2" style="text-align:center; max-width:460px; margin:0 auto 40px;">
-    Thep Krasatti, Thalang District — Phuket's quiet northeast.
-    The Andaman coast nearby. International schools close. Everything you need, nothing you don't.
-  </p>
-  <div class="rv rv-delay-3" style="width:100%; max-width:960px; margin:0 auto; border:1px solid var(--gold-dim); overflow:hidden;">
+<section id="location">
+  <p class="label rv loc-label" style="margin-bottom:0;">The Location</p>
+  <div class="loc-map rv rv-delay-1">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955!2d98.3147682!3d8.039433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30503760eb2da311%3A0x2bb245687b450b4a!2sTri%20Vananda!5e0!3m2!1sen!2sth!4v1"
-      width="100%" height="400" style="border:0; display:block; filter:saturate(.3) brightness(.85) contrast(1.1);"
+      width="100%" height="480" style="border:0; display:block; filter:saturate(.3) brightness(.85) contrast(1.1);"
       allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
-  <p style="text-align:center; margin-top:20px;">
+  <p class="loc-link">
     <a href="https://www.google.com/maps/place/Tri+Vananda/@8.039433,98.3147682,17z/data=!3m1!4b1!4m6!3m5!1s0x30503760eb2da311:0x2bb245687b450b4a!8m2!3d8.0394277!4d98.3173431!16s%2Fg%2F11p0wbvrqd" target="_blank" rel="noopener"
        style="font-family:var(--sans); font-size:10px; font-weight:300; letter-spacing:.24em; text-transform:uppercase; color:var(--gold-soft); text-decoration:none; border-bottom:1px solid var(--gold-dim); padding-bottom:2px; transition:color .3s;">
       Open in Google Maps ↗
@@ -775,18 +1154,15 @@ footer p {
   </p>
 </section>
 
-<!-- ═══════════ FINAL CTA ═══════════ -->
-<section id="cta">
-  <p class="label rv" style="text-align:center;">Begin</p>
-  <h2 class="cta-h rv rv-delay-1">You already know what<br>you're looking for.<br><em>Come and see it.</em></h2>
-  <p class="cta-sub rv rv-delay-2">Walk the forest. See the homes. Stay for dinner at Jampa. You'll know.</p>
-  <a href="https://wa.me/66XXXXXXXXX?text=I'd%20like%20to%20arrange%20a%20visit%20to%20Tri%20Vananda" class="cta-btn rv rv-delay-3">Arrange a Private Visit</a>
-  <p class="cta-note rv rv-delay-4">Hosted visits available Thursday – Monday &ensp;·&ensp; WhatsApp preferred</p>
-</section>
-
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer>
-  <p>Tri Vananda &ensp;·&ensp; Phuket, Thailand &ensp;·&ensp; trivananda.com</p>
+  <p class="f-lead">Build, Belong &amp; Bloom.</p>
+  <p class="f-meta">
+    <a href="https://www.trivananda.com" target="_blank" rel="noopener">Tri Vananda</a> ·
+    <a href="https://www.montarahospitality.com" target="_blank" rel="noopener">Montara Hospitality Group</a> ·
+    <a href="mailto:contact@trivananda.com">contact@trivananda.com</a>
+  </p>
+  <p class="f-meta" style="opacity:.35;">Thep Krasatti, Thalang District, Phuket 83110</p>
 </footer>
 
 <!-- ═══════════ JS ═══════════ -->
